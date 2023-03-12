@@ -1,0 +1,23 @@
+@media screen and (max-width: 1690px) { 
+    .card4 {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 1229px) {
+    .card3 {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    .card2 {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .card1 {
+      display: none;
+    }
+  }

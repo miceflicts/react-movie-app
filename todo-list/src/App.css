@@ -1,0 +1,30 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgb(163, 39, 39) !important;
+}
+
+.mainDiv{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: 85vw;
+    margin: 7vh auto;
+
+    max-width: 800px;
+    min-height: 80vh;
+}
+
+.inputDiv{
+    width: 85%;
+    height: 50px;
+}
+
+.todos{
+    width: 100%;
+    margin-bottom: 50px;
+    min-height: 50px;
+    height: auto;
+}

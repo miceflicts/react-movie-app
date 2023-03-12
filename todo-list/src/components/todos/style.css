@@ -1,0 +1,22 @@
+.todosBox{
+    width: 80%;
+    height: 100%;
+    min-height: 90px;
+    background-color: rgba(0, 0, 0, 0.068);
+}
+
+.margin{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.todoText{
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.Done{
+    text-decoration: line-through;
+    text-decoration-color: rgba(218, 18, 18, 0.904);
+    text-decoration-thickness: 3px;
+}

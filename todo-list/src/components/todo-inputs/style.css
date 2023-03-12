@@ -1,0 +1,7 @@
+.form-control{
+    border-color: #fff;
+}
+
+.form-control:focus{
+    border-color: rgba(27, 13, 13, 0.021)
+}
