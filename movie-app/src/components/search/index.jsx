@@ -24,7 +24,7 @@ function Search() {
 
       // Function to handle clicks outside the div
       const handleClickOutsideComponent = (event) => {
-        // Check if the clicked element is the same of the current element
+        // Check if the clicked element is not the same of the current element
         if (ref.current && !ref.current.contains(event.target)) {
           // Check if the clicked element is not the input element
           if (inputRef.current && inputRef.current !== event.target) {
@@ -63,7 +63,7 @@ function Search() {
               className="input text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               />
               {isHidden ? null : (
-                  <div className="autoFill absolute w-full flex rounded-md" ref={ref}>
+                  <div className="autoFill absolute w-full flex rounded-md z-10" ref={ref}>
                       <div className=" w-full min-h-[200px] mt-1"></div>
                   </div>
               )}

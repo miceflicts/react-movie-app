@@ -7,7 +7,7 @@
       margin-left: 1rem !important;
   }
 
-  .user{
+  .hamburguer{
       margin-right: 1rem !important;
   }
 }
@@ -18,7 +18,7 @@
         max-width: 150px !important;
     }
 
-    .user{
+    .hamburguer{
         display: none !important;
     }
     

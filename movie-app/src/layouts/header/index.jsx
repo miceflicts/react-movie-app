@@ -1,7 +1,8 @@
 import React from 'react'
-import logo from "../../assets/logos/alt_short.svg"
-import hamburguer from "../../assets/menu/hamburguer.png"
+import Hamburguer from '../../components/hamburguer'
 import Search from '../../components/search'
+
+import logo from "../../assets/logos/alt_short.svg"
 import "./style.css"
 
 function Header() {
@@ -15,8 +16,8 @@ function Header() {
         <Search></Search>
       </div>
 
-      <div className="user w-[45px] min-w-[45px] mr-10 ">
-        <a href="#"><img src={hamburguer} alt="" className='w-full'/></a>
+      <div className="hamburguer w-[45px] min-w-[45px] mr-10 ">
+        <Hamburguer></Hamburguer>
       </div>
     </div>
   )
