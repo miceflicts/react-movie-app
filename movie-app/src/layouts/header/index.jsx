@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from "../../assets/logos/alt_short.svg"
-import user from "../../assets/user/user.png"
+import hamburguer from "../../assets/menu/hamburguer.png"
 import Search from '../../components/search'
 import "./style.css"
 
@@ -15,8 +15,8 @@ function Header() {
         <Search></Search>
       </div>
 
-      <div className="user rounded-full w-[56px] min-w-[56px] mr-10 border border-gray-100/5 ">
-        <a href="#"><img src={user} alt="" className='w-full'/></a>
+      <div className="user w-[45px] min-w-[45px] mr-10 ">
+        <a href="#"><img src={hamburguer} alt="" className='w-full'/></a>
       </div>
     </div>
   )
