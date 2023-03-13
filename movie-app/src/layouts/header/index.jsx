@@ -9,7 +9,7 @@ function Header() {
   return (
     <div className='darkBlue flex justify-between items-center w-full h-28 gap-6'>
       <div className="logo w-[200px] min-w-[200px] ml-10">
-        <img src={logo} alt=""/>
+        <a href="/"><img src={logo} alt="Website Logo"/></a>
       </div>
 
       <div className="search flex justify-center items-center flex-col w-full max-w-[1200px]">

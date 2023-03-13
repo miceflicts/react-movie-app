@@ -1,8 +1,8 @@
 import React from 'react'
-import Header from '../layouts/header'
-import Recomended from '../components/recomendations'
-import Footer from '../layouts/footer';
-import Carousel from '../layouts/carousel';
+import Header from '../../layouts/header'
+import Recomended from '../../components/recomendations'
+import Footer from '../../layouts/footer';
+import Carousel from '../../layouts/carousel';
 
 function Home() {
   // Title of each recomendation section
@@ -10,7 +10,6 @@ function Home() {
 
   return (
     <>
-        <Header></Header>
         <Carousel></Carousel>
         <div className="content m-auto left-0 right-0 w-3/4 mt-20 max-[600px]:w-full min-h-[800px]">
           {recomendations.map((text,index) => {

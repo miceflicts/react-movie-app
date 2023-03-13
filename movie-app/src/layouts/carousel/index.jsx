@@ -9,21 +9,25 @@ function Carousel() {
     loop={true}
     slidesPerView={1}
     >
-    <SwiperSlide>
+        <SwiperSlide>
             <div className="bg-black w-screen h-[500px]"></div>
-    </SwiperSlide>
-    <SwiperSlide>
+        </SwiperSlide>
+
+        <SwiperSlide>
             <div className=" bg-yellow-400 w-screen h-[500px]"></div>
-    </SwiperSlide>
-    <SwiperSlide>
+        </SwiperSlide>
+
+        <SwiperSlide>
             <div className=" bg-stone-500 w-screen h-[500px]"></div>
-    </SwiperSlide>
-    <SwiperSlide>
+        </SwiperSlide>
+
+        <SwiperSlide>
             <div className=" bg-emerald-800 w-screen h-[500px]"></div>
-    </SwiperSlide>
-    <SwiperSlide>
+        </SwiperSlide>
+
+        <SwiperSlide>
             <div className=" bg-indigo-900 w-screen h-[500px]"></div>
-    </SwiperSlide>
+        </SwiperSlide>  
     </Swiper>
   )
 }
