@@ -1,15 +1,19 @@
 import React from 'react'
 import Hamburguer from '../../components/hamburguer'
 import Search from '../../components/search'
+import { Link } from 'react-router-dom';
 
 import logo from "../../assets/logos/alt_short.svg"
 import "./style.css"
 
 function Header() {
   return (
-    <div className='darkBlue flex justify-between items-center w-full h-28 gap-6'>
+    <div className='darkBlue flex justify-between items-center w-full h-28 gap-6 '>
+
       <div className="logo w-[200px] min-w-[200px] ml-10">
-        <a href="/"><img src={logo} alt="Website Logo"/></a>
+        <Link to="/">
+          <img src={logo} alt="Website Logo" className='cursor-pointer'/>
+        </Link>
       </div>
 
       <div className="search flex justify-center items-center flex-col w-full max-w-[1200px]">
