@@ -11,7 +11,7 @@ function Home() {
   return (
     <>
         <Carousel></Carousel>
-        <div className="content m-auto left-0 right-0 w-3/4 mt-20 max-[600px]:w-full min-h-[800px]">
+        <div className="m-auto left-0 right-0 w-3/4 mt-20 max-[600px]:w-full min-h-[800px] flex flex-col items-center justify-center">
           {recomendations.map((text,index) => {
             return <Recomended title={text.title} key={index}></Recomended>
           })}

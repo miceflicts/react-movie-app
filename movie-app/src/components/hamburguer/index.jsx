@@ -20,13 +20,14 @@ function Hamburguer() {
         setOverFlow();
     };
 
+    // used to prevent the page from scrolling
     const setOverFlow = () => {
         document.body.style.overflow = isVisible ? 'auto' : 'hidden';
     };
 
     return (
         <>
-            <a href="#" onClick={handleClick}><img src={hamburguer} alt="" className='w-full'/></a>
+            <img src={hamburguer} onClick={handleClick} alt="" className='w-full cursor-pointer'/>
             
             {!isVisible ? null : (
                 <HamburguerMenu onClick={handleHamburguerClick}></HamburguerMenu>

@@ -40,12 +40,3 @@
   background-color: #0f1318fa;
 }
 
-@media screen and (max-width: 1690px) {
-  .content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-}
-

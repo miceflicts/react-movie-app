@@ -2,9 +2,11 @@ import React from 'react';
 
 function Movie() {
   
-  return (
-    <div>Movie page</div>
-  )
-}
+    return (
+      <>
+        <div>Movies page</div>
+      </>
+    )
+  }
 
 export default Movie;

@@ -2,7 +2,7 @@ import React from 'react'
 
 function TvShow() {
   return (
-    <div>TvShow</div>
+    <div>Tvs page</div>
   )
 }
 
