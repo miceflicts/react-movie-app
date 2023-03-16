@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import Hamburguer from '../../components/hamburguer'
 import Search from '../../components/search'
 import { Link } from 'react-router-dom';
@@ -7,6 +7,40 @@ import logo from "../../assets/logos/alt_short.svg"
 import "./style.css"
 
 function Header() {
+  const [windowSize, setWindowSize] = useState(0);
+  
+  const getWindowSize = () => {
+    const width = window.innerWidth;
+    return width;
+  }
+
+  const enableScrolling = () => {
+    if (windowSize > 900) {
+      document.body.style.overflow = "auto";
+    };
+  };
+
+  
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    }
+
+  }, [])
+
+  useEffect(() => {
+    enableScrolling();
+  
+  }, [windowSize]);
+  
+  
+
   return (
     <div className='darkBlue flex justify-between items-center w-full h-28 gap-6 '>
 
@@ -24,6 +58,7 @@ function Header() {
           </ul>
           <Link to="/search"><button className=" bg-[#0d1014] hover:bg-[#060708] text-gray-200/90 font-bold py-2 px-6 rounded mr-10 max-[900px]:hidden">Search</button></Link>
         </div>
+
 
         <div className="hamburguer w-[45px] min-w-[45px] mr-4 hidden max-[900px]:block">
           <Hamburguer></Hamburguer>

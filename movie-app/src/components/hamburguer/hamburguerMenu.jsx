@@ -5,7 +5,7 @@ import logo from "../../assets/logos/alt_short.svg"
 function HamburguerMenu(props) {
 
   const ref = useRef();
-  const refLi = useRef();
+  const refHamburguerElements = useRef();
 
   // set the function props to false (will close the hamburguer menu)
   const setOnClickProps = (value) => {
@@ -17,21 +17,29 @@ function HamburguerMenu(props) {
     const handleClickInsideComponent = (event) => {
       // Check if the clicked element is the same of the current element
       if (ref.current && ref.current.contains(event.target)) {
-          const isVisible = false;
+          let isVisible = false;
           setOnClickProps(isVisible)
       }
-      // todo make this works (check if the element clicked is Li, if it is close the hamburguer)
-      if (refLi.current && refLi.current.contains(event.target)) {
-          const isVisible = false;
-          setOnClickProps(isVisible)
+    }
+
+    // closes the hamburguer menu when one of its elements is clicked
+    const handleHamburguerElementsClicks = (event) => {
+      if (refHamburguerElements.current && refHamburguerElements.current.contains(event.target)) {
+        if (event.target.tagName.toLowerCase() === "li" || event.target.tagName.toLowerCase() === "button") {
+          let isVisible = false;
+          setTimeout(()=>{setOnClickProps(isVisible)}, 200)
+        }
       }
-    };
+    }
+
     // Add event listeners to the document object
     document.addEventListener('mousedown', handleClickInsideComponent);
+    document.addEventListener('mousedown', handleHamburguerElementsClicks);
 
     // Remove event listeners when the component unmounts (optmization)
     return () => {
       document.removeEventListener('mousedown', handleClickInsideComponent);
+      document.removeEventListener('mousedown', handleHamburguerElementsClicks);
     };
 
   }, []);
@@ -40,12 +48,12 @@ function HamburguerMenu(props) {
   return (
     <>
         <div className="absolute bg-[#161c24] h-full w-[250px] left-0 top-0 z-10 overflow-hidden shadow-2xl">
-            <div className='flex flex-col justify-center items-center gap-10 w-full'>
+            <div className='flex flex-col justify-center items-center gap-10 w-full' ref={refHamburguerElements}>
               <Link to="/" className='contents'><img src={logo} alt="" className=' w-3/4 mt-10'/></Link>
               <ul className='flex flex-col gap-5 mt-10 text-gray-200/90 font-medium text-base cursor-pointer'>
-                <Link to="/" className='hover:text-gray-200/70'><li ref={refLi}>Home</li></Link>
-                <Link to="/movie" className='hover:text-gray-200/70'><li ref={refLi}>Movies</li></Link>
-                <Link to="/tv" className='hover:text-gray-200/70'><li ref={refLi}>Tv</li></Link>
+                <Link to="/" className='hover:text-gray-200/70' ><li>Home</li></Link>
+                <Link to="/movie" className='hover:text-gray-200/70'><li>Movies</li></Link>
+                <Link to="/tv" className='hover:text-gray-200/70'><li>Tv</li></Link>
               </ul>
               <Link to="/search"><button className=" bg-[#0d1014] hover:bg-[#060708] text-gray-200/90 font-bold py-2 px-20 rounded">Search</button></Link>
             </div>
