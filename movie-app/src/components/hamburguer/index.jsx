@@ -13,13 +13,11 @@ function Hamburguer() {
     
     const handleHamburguerClick = (event) => {
         setIsVisible(event);
-        setOverFlow();
     };
 
     // set the hamburguer div visibility with the ternary operator
     const setVisibility = () => {
         isVisible === false ? setIsVisible(true) : setIsVisible(false);
-        setOverFlow();
     };
 
     const getWindowSize = () => {
@@ -36,7 +34,7 @@ function Hamburguer() {
 
     // used to prevent the page from scrolling when the hamburguer menu is opened
     const setOverFlow = () => {
-        document.body.style.overflow = isVisible ? 'auto' : 'hidden';
+        document.body.style.overflow = !isVisible ? 'auto' : 'hidden';
     };
 
     useEffect(() => {
@@ -56,6 +54,10 @@ function Hamburguer() {
       autoCloseHamburguerMenu()
     }, [screenWidth])
     
+    useEffect(() =>{
+        setOverFlow()
+    }, [isVisible]);
+
     return (
         <>
             <img src={hamburguer} onClick={handleClick} alt="" className='w-full cursor-pointer'/>

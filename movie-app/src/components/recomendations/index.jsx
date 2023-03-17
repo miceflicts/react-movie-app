@@ -1,5 +1,5 @@
 import React from 'react'
-import Cards from '../cards'
+import Cards from "../cards"
 
 function Recomended({title}) {
   const description = [{description: "Sigma movie"}, {description: "Wandinha"},{description: "Sigma movie"}, {description: "Wandinha"}, {description: "Sigma movie"}]

@@ -1,9 +1,11 @@
 import React from 'react'
-import Search from '../../components/search'
+import Search from "../../components/search/searchBar"
 
 function SearchPage() {
   return (
-    <Search></Search>
+    <div className="flex m-auto w-3/4 mt-20 max-[600px]:w-full min-h-[800px]">
+      <Search></Search>
+    </div>
   )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import Hamburguer from '../../components/hamburguer'
-import Search from '../../components/search'
+import Search from '../../components/search/searchBar'
 import { Link } from 'react-router-dom';
 
 import logo from "../../assets/logos/alt_short.svg"

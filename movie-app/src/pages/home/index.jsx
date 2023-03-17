@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../../layouts/header'
-import Recomended from '../../components/recomendations'
+import Recomended from "../../components/recomendations"
 import Footer from '../../layouts/footer';
 import Carousel from '../../layouts/carousel';
 
@@ -11,7 +11,7 @@ function Home() {
   return (
     <>
         <Carousel></Carousel>
-        <div className="m-auto left-0 right-0 w-3/4 mt-20 max-[600px]:w-full min-h-[800px] flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center m-auto w-3/4 mt-20 max-[600px]:w-full min-h-[800px]">
           {recomendations.map((text,index) => {
             return <Recomended title={text.title} key={index}></Recomended>
           })}
