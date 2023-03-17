@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react'
+import React from 'react'
 import Hamburguer from '../../components/hamburguer'
 import Search from '../../components/search'
 import { Link } from 'react-router-dom';
@@ -7,40 +7,7 @@ import logo from "../../assets/logos/alt_short.svg"
 import "./style.css"
 
 function Header() {
-  const [windowSize, setWindowSize] = useState(0);
   
-  const getWindowSize = () => {
-    const width = window.innerWidth;
-    return width;
-  }
-
-  const enableScrolling = () => {
-    if (windowSize > 900) {
-      document.body.style.overflow = "auto";
-    };
-  };
-
-  
-  useEffect(() => {
-    const handleWindowResize = () => {
-      setWindowSize(getWindowSize());
-    }
-
-    window.addEventListener("resize", handleWindowResize);
-
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    }
-
-  }, [])
-
-  useEffect(() => {
-    enableScrolling();
-  
-  }, [windowSize]);
-  
-  
-
   return (
     <div className='darkBlue flex justify-between items-center w-full h-28 gap-6 '>
 
