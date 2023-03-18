@@ -11,7 +11,6 @@ function Carousel() {
     <Swiper
     modules={[Pagination, Autoplay]}
     loop={true}
-    navigation
     autoplay={{delay: 5000}}
     pagination={{ clickable: true}}
     slidesPerView={1}
