@@ -1,12 +1,19 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper";
 import 'swiper/css';
 import "swiper/css/autoplay";
+import "swiper/css/pagination";
+
 
 function Carousel() {
   return (
     <Swiper
+    modules={[Pagination, Autoplay]}
     loop={true}
+    navigation
+    autoplay={{delay: 5000}}
+    pagination={{ clickable: true}}
     slidesPerView={1}
     >
         <SwiperSlide>

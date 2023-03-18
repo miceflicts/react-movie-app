@@ -2,7 +2,8 @@ import React from 'react'
 import Header from '../../layouts/header'
 import Recomended from "../../components/recomendations"
 import Footer from '../../layouts/footer';
-import Carousel from '../../layouts/carousel';
+import Carousel from '../../components/carousel';
+import CardCarousel from '../../components/cardCarousel';
 
 function Home() {
   // Title of each recomendation section
@@ -11,7 +12,7 @@ function Home() {
   return (
     <>
         <Carousel></Carousel>
-        <div className="flex flex-col items-center justify-center m-auto w-3/4 mt-20 max-[600px]:w-full min-h-[800px]">
+        <div className="m-auto w-3/4 mt-20 max-[600px]:w-full min-h-[800px]">
           {recomendations.map((text,index) => {
             return <Recomended title={text.title} key={index}></Recomended>
           })}

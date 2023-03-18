@@ -37,7 +37,7 @@ function Search() {
       <>
         <div className='flex flex-col items-center w-full'>
           <div className='mb-3'>
-            <button className= {`mr-2 text-gray-200/90 font-bold py-2 px-6 rounded max-[900px]:hidden}  ${activeFilter.movie}`} value="movie" onClick={handleFilterChange}>Movie</button>
+            <button className= {`mr-2 text-gray-200/90 font-bold py-2 px-6 rounded max-[900px]:hidden} ${activeFilter.movie}`} value="movie" onClick={handleFilterChange}>Movie</button>
             <button className= {`mr-2 text-gray-200/90 font-bold py-2 px-6 rounded max-[900px]:hidden} ${activeFilter.tv}`} value="tv" onClick={handleFilterChange}>Tv</button>
             <button className= {`mr-2 text-gray-200/90 font-bold py-2 px-6 rounded max-[900px]:hidden} ${activeFilter.people}`} value="people" onClick={handleFilterChange}>People</button>
           </div>
