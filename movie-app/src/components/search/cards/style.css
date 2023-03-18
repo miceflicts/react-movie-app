@@ -1,0 +1,30 @@
+#cardDiv{
+    width: 24%;
+}
+
+@media screen and (max-width: 1600px) {
+    #cardDiv {
+        width: 32%;
+    }
+  }
+
+  @media screen and (max-width: 1070px) {
+    #cardDiv {
+        width: 48%;
+        height: 350px;
+    }
+  }
+
+@media screen and (max-width: 600px) {
+    #cardDiv {
+        width: 48%;
+        height: 350px;
+    }
+  }
+
+@media screen and (max-width: 422px) {
+    #cardDiv {
+        width: 44%;
+        height: 240px;
+    }
+}
