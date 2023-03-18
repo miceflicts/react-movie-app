@@ -1,0 +1,19 @@
+.autoFill{
+    background-color: #161c24;
+}
+
+.input:focus{
+    outline: none;
+}
+
+.active{
+    background-color: #0d1014;
+}
+
+.active:hover{
+    background-color: #060708;
+}
+
+.off:hover{
+    background-color: rgba(17, 21, 26, 0.925);
+}

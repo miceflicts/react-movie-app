@@ -11,14 +11,7 @@
   @media screen and (max-width: 1070px) {
     #cardDiv {
         width: 48%;
-        height: 350px;
-    }
-  }
-
-@media screen and (max-width: 600px) {
-    #cardDiv {
-        width: 48%;
-        height: 350px;
+        height: 450px;
     }
   }
 
