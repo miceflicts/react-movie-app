@@ -5,6 +5,7 @@ import Cards from '../cards';
 import 'swiper/css';
 import "swiper/css/navigation";
 import "./style.css"
+import Placeholder from '../cards/placeholder';
 
 function CardCarousel({recommendations}) {
     const description = [{description: "Loading"}, {description: "Loading"},{description: "Loading"}, {description: "Loading"}, {description: "Loading"}, {description: "Loading"}, {description: "Loading"}, {description: "Loading"}];
@@ -36,10 +37,10 @@ function CardCarousel({recommendations}) {
             }
         }}
         >
-            {recommendations !== null ? recommendations.map((media, index) => {
-                return <SwiperSlide key={index}><Cards name={media.name} key={index}/></SwiperSlide>
+            {recommendations !== null ?  recommendations.map((media, index) => {
+                return <SwiperSlide key={index}><Cards name={media.name} poster={`https://image.tmdb.org/t/p/w500${media.poster}`} key={index}/></SwiperSlide>
             }) : description.map((media, index) => {
-                return <SwiperSlide key={index}><Cards description={""} key={index}/></SwiperSlide>
+                return <SwiperSlide key={index}><Placeholder key={index}></Placeholder></SwiperSlide>
             })}
 
         </Swiper>

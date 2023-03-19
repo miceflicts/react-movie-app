@@ -1,7 +1,6 @@
 .setWidth{
   min-width: 0px;
   max-width: 270px;
-  height: 320px;
 }
 
 @media (max-width: 1770px) {
