@@ -1,8 +1,8 @@
 import React from 'react'
-import Recomended from "../../components/recomendations"
+import Recomended from "../../components/recommendations"
 import Footer from '../../layouts/footer';
 import Carousel from '../../components/carousel';
-import ApiTests from '../../api';
+import GetRecomended from '../../api';
 
 function Home() {
   // Title of each recomendation section
@@ -19,10 +19,9 @@ function Home() {
         <Carousel></Carousel>
         <div className="m-auto w-3/4 mt-20 max-[600px]:w-full min-h-[800px]">
           {recomendations.map((text,index) => {
-            return <Recomended title={text.title} key={index}></Recomended>
+            return <Recomended title={text.title} type={text.type} key={index}></Recomended>
           })}
         </div>
-        <ApiTests></ApiTests>
         <Footer></Footer>
     </>
   )
