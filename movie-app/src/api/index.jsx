@@ -36,6 +36,9 @@ function SearchMedia({type, query, onSearch}) {
     for (let i = 0; i < info.results.length; i++){
       let mediaName = info.results[i].name === undefined ? "title" : "name";
       let getPoster = info.results[i].poster_path === null ? "backdrop_path" : "poster_path";
+      if (type === "person"){
+        getPoster = "profile_path";
+      }
 
       if (info.results[i][mediaName] !== null && info.results[i][getPoster] !== null) {
         mediarray.push({name: info.results[i][mediaName], poster: info.results[i][getPoster]})

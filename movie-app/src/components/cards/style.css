@@ -1,16 +1,5 @@
 .setWidth{
-  min-width: 0px;
-  max-width: 270px;
-}
-
-@media (max-width: 1770px) {
-  .setWidth{
-     max-width: 320px;
-  }
-}
-
-@media (max-width: 1450px) {
-  .setWidth{
-     min-width: 0px;
-  }
+  min-width: 340px;
+  max-height: 560px;
+  min-height: max-content;
 }

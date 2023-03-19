@@ -2,14 +2,16 @@ import React from 'react'
 import "./style.css"
 import { Link } from 'react-router-dom'
 
-function SearchCards() {
+function SearchCards({name, poster}) {
   return (
-    <Link to="/movie/1" className='contents'>
-        <div className="h-[500px]" id='cardDiv'>
-            <div className='bg-black w-full h-full rounded-md'></div>
-            <h5 className='text-gray-200/90 break-all mt-2'>0</h5>
-        </div>
-    </Link>
+    <>
+        <Link to="/movie/1" className='contents'>
+            <div className="flex flex-col setWidth rounded-md">
+                <img src={poster} className=" h-full w-full hover:brightness-50 aspect-[3.8/6]" />
+                <h5 className='text-gray-200/90 break-all mt-5'>{name}</h5>
+            </div>
+        </Link>
+    </>
   )
 }
 
