@@ -22,10 +22,10 @@ function CardCarousel() {
         900: {
             slidesPerView: 3,
         },
-        1450: {
+        1250: {
             slidesPerView: 4,
         },
-        1770: {
+        1470: {
             slidesPerView: 5,
         },
         2200: {
@@ -37,7 +37,7 @@ function CardCarousel() {
     }}
     >
         {description.map((desc, index) => {
-            return <SwiperSlide key={index}><Cards description={desc.description} key={index} index={index}/></SwiperSlide>
+            return <SwiperSlide key={index}><Cards description={desc.description} key={index}/></SwiperSlide>
         })}
 
     </Swiper>

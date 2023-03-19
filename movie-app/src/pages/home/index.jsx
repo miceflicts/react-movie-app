@@ -1,13 +1,18 @@
 import React from 'react'
-import Header from '../../layouts/header'
 import Recomended from "../../components/recomendations"
 import Footer from '../../layouts/footer';
 import Carousel from '../../components/carousel';
-import CardCarousel from '../../components/cardCarousel';
+import ApiTests from '../../api';
 
 function Home() {
   // Title of each recomendation section
-  const recomendations = [{title: "In the theaters"}, {title: "Hyped"}, {title: "Top rated"}];
+  const recomendations = [
+  {title: "Trending", type: "/trending/all/week"}, // movie and tv
+  {title: "On the theaters", type: "/movie/now_playing"}, // movie
+  {title: "Popular Movies", type: "/movie/popular"}, // movie
+  {title: "Top Rated Movies", type: "/movie/top_rated"}, // movie
+  {title: "Popular Series", type: "/tv/popular"}, // tv
+  {title: "Top Rated Series", type: "/tv/top_rated"}]; // tv
 
   return (
     <>
@@ -17,6 +22,7 @@ function Home() {
             return <Recomended title={text.title} key={index}></Recomended>
           })}
         </div>
+        <ApiTests></ApiTests>
         <Footer></Footer>
     </>
   )
