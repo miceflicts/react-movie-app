@@ -7,12 +7,12 @@ import GetRecomended from '../../api';
 function Home() {
   // Title of each recomendation section
   const recomendations = [
-  {title: "Top Rated Series", type: "/tv/top_rated"}, // movie and tv
   {title: "On the theaters", type: "/movie/now_playing"}, // movie
-  {title: "Popular Movies", type: "/movie/popular"}, // movie
+  {title: "Trending", type: "/trending/all/week"}, // tv
+  {title: "Top Rated Series", type: "/tv/top_rated"}, // movie and tv
   {title: "Top Rated Movies", type: "/movie/top_rated"}, // movie
-  {title: "Popular Series", type: "/tv/popular"},
-  {title: "Trending", type: "/trending/all/week"}]; // tv
+  {title: "Popular Movies", type: "/movie/popular"}, // movie
+  {title: "Popular Series", type: "/tv/popular"}];
 
   return (
     <>
