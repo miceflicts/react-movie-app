@@ -32,7 +32,7 @@ function GetRecomended({ type, onMediaChange }) {
 function SearchMedia({type, query, onSearch}) {
 
   const handleFetch = (info) =>{
-    let mediarray = [];
+    let mediaArray = [];
     for (let i = 0; i < info.results.length; i++){
       let mediaName = info.results[i].name === undefined ? "title" : "name";
       let getPoster = info.results[i].poster_path === null ? "backdrop_path" : "poster_path";
@@ -41,10 +41,10 @@ function SearchMedia({type, query, onSearch}) {
       }
 
       if (info.results[i][mediaName] !== null && info.results[i][getPoster] !== null) {
-        mediarray.push({name: info.results[i][mediaName], poster: info.results[i][getPoster], id: info.results[i].id})
+        mediaArray.push({name: info.results[i][mediaName], poster: info.results[i][getPoster], id: info.results[i].id})
       }
     }
-    onSearch(mediarray);
+    onSearch(mediaArray);
   }
 
   useEffect(() => {
@@ -59,7 +59,32 @@ function SearchMedia({type, query, onSearch}) {
   
   }, [type, query])
 
-  };
+};
+
+function CarouselRecomendation({onFetch}){
+  useEffect(() => {
+    const fetchRecomendations = () => {
+      fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${api_key}&page=1`)
+        .then(response => response.json())
+        .then(data => filterInfo(data))
+        .catch(error => console.error(error));
+    };
+    
+
+    fetchRecomendations();
+  }, [])
+  
+  
+  const filterInfo = (info) => {
+    let mediaArray = [];
+    let mediaLenght = 5;
+    for (let i = 0; i < mediaLenght; i++){
+      let mediaName = info.results[i].name === undefined ? "title" : "name";
+      mediaArray.push({name: info.results[i][mediaName], id: info.results[i].id, overview: info.results[i].overview, vote: info.results[i].vote_count, genre_id: info.results[i].genre_ids , backdrop: info.results[i].backdrop_path})
+    };
+    onFetch(mediaArray);
+  }
+}
 
 export default GetRecomended;
-export { SearchMedia };
+export { SearchMedia, CarouselRecomendation };

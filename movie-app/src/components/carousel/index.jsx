@@ -1,41 +1,45 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
+import { CarouselRecomendation } from '../../api';
 import 'swiper/css';
 import "swiper/css/autoplay";
 import "swiper/css/pagination";
+import CarouselCards from './cards';
 
 
 function Carousel() {
-  return (
-    <Swiper
-    modules={[Pagination, Autoplay]}
-    loop={true}
-    autoplay={{delay: 5000}}
-    pagination={{ clickable: true}}
-    slidesPerView={1}
-    >
-        <SwiperSlide>
-            <div className="bg-black w-screen h-[70vh]"></div>
-        </SwiperSlide>
+    const [carouselInfo, setCarouselInfo] = useState(null);
 
-        <SwiperSlide>
-            <div className=" bg-yellow-400 w-screen h-[70vh]"></div>
-        </SwiperSlide>
+    const handleFetch = (event) => {
+        setCarouselInfo(event);
+    };
 
-        <SwiperSlide>
-            <div className=" bg-stone-500 w-screen h-[70vh]"></div>
-        </SwiperSlide>
+    useEffect(() => {
+      console.log(carouselInfo);
+    }, [carouselInfo])
+    
+    
+    return (
+        <>
+            <CarouselRecomendation onFetch={handleFetch}></CarouselRecomendation>
+            <Swiper
+            modules={[Pagination, Autoplay]}
+            loop={true}
+            autoplay={{delay: 5000}}
+            pagination={{ clickable: true}}
+            slidesPerView={1}
+            >
+                {carouselInfo !== null ? carouselInfo.map((media, index) => (
+                <SwiperSlide key={index}>
+                    <CarouselCards name={media.name} backdrop={`https://image.tmdb.org/t/p/original${media.backdrop}`} genre={media.genre_id} overview={media.overview} vote={media.vote}></CarouselCards>
+                </SwiperSlide>
+                )) : null}
 
-        <SwiperSlide>
-            <div className=" bg-emerald-800 w-screen h-[70vh]"></div>
-        </SwiperSlide>
-
-        <SwiperSlide>
-            <div className=" bg-indigo-900 w-screen h-[70vh]"></div>
-        </SwiperSlide>  
-    </Swiper>
-  )
+                
+            </Swiper>
+        </>
+    )
 }
 
 export default Carousel
