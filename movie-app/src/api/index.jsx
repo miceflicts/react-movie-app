@@ -61,10 +61,10 @@ function SearchMedia({type, query, onSearch}) {
 
 };
 
-function CarouselRecomendation({onFetch}){
+function CarouselRecomendation({onFetch, type, route}){
   useEffect(() => {
     const fetchRecomendations = () => {
-      fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${api_key}&page=1`)
+      fetch(`https://api.themoviedb.org/3/${type}/${route}?api_key=${api_key}&page=1`)
         .then(response => response.json())
         .then(data => filterInfo(data))
         .catch(error => console.error(error));
@@ -76,11 +76,12 @@ function CarouselRecomendation({onFetch}){
   
   
   const filterInfo = (info) => {
+    console.log(info)
     let mediaArray = [];
-    let mediaLenght = 5;
+    let mediaLenght = 10;
     for (let i = 0; i < mediaLenght; i++){
       let mediaName = info.results[i].name === undefined ? "title" : "name";
-      mediaArray.push({name: info.results[i][mediaName], id: info.results[i].id, overview: info.results[i].overview, vote: info.results[i].vote_count, genre_id: info.results[i].genre_ids , backdrop: info.results[i].backdrop_path})
+      mediaArray.push({name: info.results[i][mediaName], id: info.results[i].id, overview: info.results[i].overview, vote: info.results[i].vote_count, genre_id: info.results[i].genre_ids , backdrop: info.results[i].backdrop_path, poster: info.results[i].poster_path, type: info.results[i].media_type})
     };
     onFetch(mediaArray);
   }

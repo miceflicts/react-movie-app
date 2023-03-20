@@ -13,9 +13,11 @@ function Home() {
   {title: "Popular Movies", route: "/movie/popular", type: "movie"}, // movie
   {title: "Popular Series", route: "/tv/popular", type: "tv"}]; // tv
 
+  const carrouselInfos = {carrouselType: "trending", carrouselRoute: "all/day"}
+
   return (
     <>
-        <Carousel></Carousel>
+        <Carousel type={carrouselInfos.carrouselType} route={carrouselInfos.carrouselRoute}></Carousel>
         <div className="m-auto w-3/4 mt-20 max-[600px]:w-[95%] min-h-[800px]">
           {recomendations.map((text,index) => {
             return <Recomended title={text.title} route={text.route} type={text.type} key={index}></Recomended>

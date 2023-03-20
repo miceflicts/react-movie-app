@@ -8,8 +8,26 @@ import "swiper/css/pagination";
 import CarouselCards from './cards';
 
 
-function Carousel() {
+function Carousel({type, route}) {
     const [carouselInfo, setCarouselInfo] = useState(null);
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+    const handleWidthChange = () => {
+        let newWidth = window.innerWidth;
+        setScreenWidth(newWidth)
+    };
+
+    useEffect(() => {
+        handleWidthChange();
+    }, [])
+
+    useEffect(() => {
+        window.addEventListener("resize", handleWidthChange);
+        
+        return () => {
+        window.removeEventListener("resize", handleWidthChange);
+        }
+    }, [screenWidth])
 
     const handleFetch = (event) => {
         setCarouselInfo(event);
@@ -22,7 +40,7 @@ function Carousel() {
     
     return (
         <>
-            <CarouselRecomendation onFetch={handleFetch}></CarouselRecomendation>
+            <CarouselRecomendation onFetch={handleFetch} type={type} route={route}></CarouselRecomendation>
             <Swiper
             modules={[Pagination, Autoplay]}
             loop={true}
@@ -30,11 +48,25 @@ function Carousel() {
             pagination={{ clickable: true}}
             slidesPerView={1}
             >
-                {carouselInfo !== null ? carouselInfo.map((media, index) => (
-                <SwiperSlide key={index}>
-                    <CarouselCards name={media.name} backdrop={`https://image.tmdb.org/t/p/original${media.backdrop}`} genre={media.genre_id} overview={media.overview} vote={media.vote}></CarouselCards>
-                </SwiperSlide>
-                )) : null}
+                {carouselInfo !== null ? carouselInfo.map((media, index) => {
+                    const setType = type === "trending" ? media.type : type;
+                    return (
+                        <SwiperSlide key={index}>
+                            <CarouselCards 
+                                name={media.name}
+                                backdrop={`https://image.tmdb.org/t/p/original${media.backdrop}`}
+                                poster={`https://image.tmdb.org/t/p/original${media.poster}`}
+                                genre={media.genre_id}
+                                overview={media.overview}
+                                vote={media.vote}
+                                id={media.id}
+                                type={setType}
+                                screenWidth={screenWidth}
+                            />
+                        </SwiperSlide>
+                    );
+                }) : null}
+
 
                 
             </Swiper>
