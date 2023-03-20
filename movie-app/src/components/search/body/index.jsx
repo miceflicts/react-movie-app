@@ -69,7 +69,7 @@ function Search() {
             <>
               <SearchMedia type={activeSearchFilter} query={inputText} onSearch={handleOnSearch}></SearchMedia>
               {searchResult && searchResult.length > 0 && (
-                <SearchResults info={searchResult}></SearchResults> 
+                <SearchResults info={searchResult} type={activeSearchFilter}></SearchResults> 
               )}
             </>
           )}

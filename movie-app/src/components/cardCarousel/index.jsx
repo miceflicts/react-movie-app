@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import Cards from '../cards';
@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 import "./style.css"
 import Placeholder from '../cards/placeholder';
 
-function CardCarousel({recommendations}) {
+function CardCarousel({recommendations, type}) {
     const description = [{description: "Loading"}, {description: "Loading"},{description: "Loading"}, {description: "Loading"}, {description: "Loading"}, {description: "Loading"}, {description: "Loading"}, {description: "Loading"}];
 
     return (
@@ -38,7 +38,8 @@ function CardCarousel({recommendations}) {
         }}
         >
             {recommendations !== null ?  recommendations.map((media, index) => {
-                return <SwiperSlide key={index}><Cards name={media.name} poster={`https://image.tmdb.org/t/p/w500${media.poster}`} key={index}/></SwiperSlide>
+                {const mediaType = media.type === undefined ? type : media.type;
+                return <SwiperSlide key={index}><Cards name={media.name} poster={`https://image.tmdb.org/t/p/w500${media.poster}`} type={mediaType} id={media.id} key={index}/></SwiperSlide>}
             }) : description.map((media, index) => {
                 return <SwiperSlide key={index}><Placeholder key={index}></Placeholder></SwiperSlide>
             })}

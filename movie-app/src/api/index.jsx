@@ -12,7 +12,7 @@ function GetRecomended({ type, onMediaChange }) {
     for (let i = 0; i < info.results.length; i++){
       let mediaName = info.results[i].name === undefined ? "title" : "name";
       let getPoster = info.results[i].poster_path === null ? "backdrop_path" : "poster_path";
-      mediaArray.push({name: info.results[i][mediaName], poster: info.results[i][getPoster]});
+      mediaArray.push({name: info.results[i][mediaName], poster: info.results[i][getPoster], type: info.results[i].media_type, id: info.results[i].id});
     }
     onMediaChange(mediaArray);
   };
@@ -41,7 +41,7 @@ function SearchMedia({type, query, onSearch}) {
       }
 
       if (info.results[i][mediaName] !== null && info.results[i][getPoster] !== null) {
-        mediarray.push({name: info.results[i][mediaName], poster: info.results[i][getPoster]})
+        mediarray.push({name: info.results[i][mediaName], poster: info.results[i][getPoster], id: info.results[i].id})
       }
     }
     onSearch(mediarray);
