@@ -62,6 +62,7 @@ function SearchMedia({type, query, onSearch}) {
 };
 
 function CarouselRecomendation({onFetch, type, route}){
+
   useEffect(() => {
     const fetchRecomendations = () => {
       fetch(`https://api.themoviedb.org/3/${type}/${route}?api_key=${api_key}&page=1`)
@@ -81,7 +82,7 @@ function CarouselRecomendation({onFetch, type, route}){
     let mediaLenght = 10;
     for (let i = 0; i < mediaLenght; i++){
       let mediaName = info.results[i].name === undefined ? "title" : "name";
-      mediaArray.push({name: info.results[i][mediaName], id: info.results[i].id, overview: info.results[i].overview, vote: info.results[i].vote_count, genre_id: info.results[i].genre_ids , backdrop: info.results[i].backdrop_path, poster: info.results[i].poster_path, type: info.results[i].media_type})
+      mediaArray.push({name: info.results[i][mediaName], id: info.results[i].id, overview: info.results[i].overview, vote: info.results[i].vote_average, genre_id: info.results[i].genre_ids , backdrop: info.results[i].backdrop_path, poster: info.results[i].poster_path, type: info.results[i].media_type})
     };
     onFetch(mediaArray);
   }

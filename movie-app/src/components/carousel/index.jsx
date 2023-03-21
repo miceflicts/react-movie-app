@@ -56,7 +56,7 @@ function Carousel({type, route}) {
                                 name={media.name}
                                 backdrop={`https://image.tmdb.org/t/p/original${media.backdrop}`}
                                 poster={`https://image.tmdb.org/t/p/original${media.poster}`}
-                                genre={media.genre_id}
+                                genres={media.genre_id}
                                 overview={media.overview}
                                 vote={media.vote}
                                 id={media.id}
@@ -67,8 +67,6 @@ function Carousel({type, route}) {
                     );
                 }) : null}
 
-
-                
             </Swiper>
         </>
     )
