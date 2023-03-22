@@ -9,7 +9,7 @@ import "./style.css"
 function Header() {
   
   return (
-    <div className='darkBlue flex justify-between items-center w-full h-28 gap-6 '>
+    <div className=' darkBlue flex justify-between items-center w-full h-28 gap-6 z-20'>
 
         <div className="logo w-[200px] min-w-[200px] ml-10">
           <Link to="/">

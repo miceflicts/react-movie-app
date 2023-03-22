@@ -1,5 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 import "./style.css"
 
 function CarouselCards({name, backdrop, genres, overview, type, vote, poster, id, screenWidth}) {
@@ -38,7 +40,18 @@ function CarouselCards({name, backdrop, genres, overview, type, vote, poster, id
         <div className='absolute flex flex-col justify-start mr-2 left-10 top-24 text-white z-10 gap-8 max-[1100px]:top-10 max-[800px]:top-20'>
           <h5 className={` name`}>{name}</h5>
           <div className=' gap-2 flex flex-wrap items-center'>
-            <h5 className=' mr-2 font-bold'>{vote.toFixed(1)}</h5>
+            <div className='w-[50px] mr-3'>
+              <CircularProgressbar 
+              value={vote}
+              maxValue={10}
+              text={vote.toFixed(1)}
+              styles={buildStyles({
+                textColor: "white",
+                pathColor: "red",
+                trailColor: "transparent",
+                textSize: "28px"
+              })}/>
+            </div>
             {cardGenres.map((genre, index) => {
               return <div key={index} className=" min-w-[80px] text-center py-1 px-2 shadow-md rounded-full bg-red-600 text-white font-sans font-semibold text-sm btn-primary hover:bg-red-800 active:shadow-none">{genre.genreName}</div>
             })}
