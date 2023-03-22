@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import CarouselCards from './cards';
 
 
-function Carousel({type, route}) {
+function Carousel({type, route, page}) {
     const [carouselInfo, setCarouselInfo] = useState(null);
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
@@ -34,13 +34,13 @@ function Carousel({type, route}) {
     };
 
     useEffect(() => {
-      console.log(carouselInfo);
+      /* onsole.log(carouselInfo); */
     }, [carouselInfo])
     
     
     return (
         <>
-            <CarouselRecomendation onFetch={handleFetch} type={type} route={route}></CarouselRecomendation>
+            <CarouselRecomendation onFetch={handleFetch} type={type} page={page} route={route}></CarouselRecomendation>
             <Swiper
             modules={[Pagination, Autoplay]}
             loop={true}

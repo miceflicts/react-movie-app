@@ -5,9 +5,10 @@ const api_key = "66bb4395550c25d9a321ac6f8024d4e6";
 // name: tv
 // title: movie
 
-function GetRecomended({ type, onMediaChange }) {
+function GetRecomended({ type, page, onMediaChange }) {
 
   const filterInfo = (info) => {
+    console.log(info);
     let mediaArray = [];
     for (let i = 0; i < info.results.length; i++){
       let mediaName = info.results[i].name === undefined ? "title" : "name";
@@ -19,7 +20,7 @@ function GetRecomended({ type, onMediaChange }) {
 
   useEffect(() => {
     const fetchInformation = () => {
-      fetch(`https://api.themoviedb.org/3${type}?api_key=${api_key}`)
+      fetch(`https://api.themoviedb.org/3${type}?api_key=${api_key}&${page}`)
         .then(response => response.json())
         .then(data => filterInfo(data))
         .catch(error => console.error(error));
@@ -61,11 +62,11 @@ function SearchMedia({type, query, onSearch}) {
 
 };
 
-function CarouselRecomendation({onFetch, type, route}){
+function CarouselRecomendation({onFetch, type, page, route}){
 
   useEffect(() => {
     const fetchRecomendations = () => {
-      fetch(`https://api.themoviedb.org/3/${type}/${route}?api_key=${api_key}&page=1`)
+      fetch(`https://api.themoviedb.org/3/${type}/${route}?api_key=${api_key}&${page}`)
         .then(response => response.json())
         .then(data => filterInfo(data))
         .catch(error => console.error(error));
@@ -77,15 +78,23 @@ function CarouselRecomendation({onFetch, type, route}){
   
   
   const filterInfo = (info) => {
-    console.log(info)
     let mediaArray = [];
-    let mediaLenght = 10;
-    for (let i = 0; i < mediaLenght; i++){
-      let mediaName = info.results[i].name === undefined ? "title" : "name";
-      mediaArray.push({name: info.results[i][mediaName], id: info.results[i].id, overview: info.results[i].overview, vote: info.results[i].vote_average, genre_id: info.results[i].genre_ids , backdrop: info.results[i].backdrop_path, poster: info.results[i].poster_path, type: info.results[i].media_type})
+    let mediaLength = 10;
+    for (let i = 0; i < mediaLength; i++){
+      let canPush = true;
+  
+      if (info.results[i].backdrop_path === null || info.results[i].poster_path === null){
+        mediaLength++;
+        canPush = false;
+      }
+      if (canPush){
+        let mediaName = info.results[i].name === undefined ? "title" : "name";
+        mediaArray.push({name: info.results[i][mediaName], id: info.results[i].id, overview: info.results[i].overview, vote: info.results[i].vote_average, genre_id: info.results[i].genre_ids , backdrop: info.results[i].backdrop_path, poster: info.results[i].poster_path, type: info.results[i].media_type})
+      }
     };
     onFetch(mediaArray);
   }
+  
 }
 
 export default GetRecomended;
