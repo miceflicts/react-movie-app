@@ -1,0 +1,26 @@
+{
+    "Languages": {
+      "pt-BR": [
+        {
+            "First section": "Nos cinemas",
+            "Second section": "Tendências",
+            "Third section": "Séries mais bem avaliadas",
+            "Fourth section": "Filmes mais bem avaliados",
+            "Fifth section": "Filmes Populares",
+            "Sixth section": "Séries Populares"
+        }
+      ],
+      "en-US": [
+        {
+            "First section": "On the theaters",
+            "Second section": "Trending",
+            "Third section": "Top Rated Tv shows",
+            "Fourth section": "Top Rated Movies",
+            "Fifth section": "Popular Movies",
+            "Sixth section": "Popular Tv shows"
+        }
+      ]
+    }
+  }
+
+  
