@@ -1,0 +1,20 @@
+{
+    "Languages": {
+      "pt-BR": [
+        {
+            "First section": "Popular",
+            "Second section": "Melhores avaliados",
+            "Third section": "Em breve",
+            "Fourth section": "No ar"
+        }
+      ],
+      "en-US": [
+        {
+            "First section": "Popular",
+            "Second section": "Top Rated",
+            "Third section": "Upcoming",
+            "Fourth section": "On the air"
+        }
+      ]
+    }
+  }

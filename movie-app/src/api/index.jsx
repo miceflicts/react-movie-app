@@ -5,7 +5,7 @@ const api_key = "66bb4395550c25d9a321ac6f8024d4e6";
 // name: tv
 // title: movie
 
-function GetRecomended({ type, page, onMediaChange }) {
+function GetRecomended({ type, page, language, region, onMediaChange }) {
 
   const filterInfo = (info) => {
     console.log(info);
@@ -20,7 +20,7 @@ function GetRecomended({ type, page, onMediaChange }) {
 
   useEffect(() => {
     const fetchInformation = () => {
-      fetch(`https://api.themoviedb.org/3${type}?api_key=${api_key}&${page}`)
+      fetch(`https://api.themoviedb.org/3${type}?api_key=${api_key}&${language}&${page}&${region}`)
         .then(response => response.json())
         .then(data => filterInfo(data))
         .catch(error => console.error(error));
@@ -30,7 +30,7 @@ function GetRecomended({ type, page, onMediaChange }) {
   }, [type]);
 };
 
-function SearchMedia({type, query, onSearch}) {
+function SearchMedia({type, query, language, region, onSearch}) {
 
   const handleFetch = (info) =>{
     let mediaArray = [];
@@ -50,8 +50,7 @@ function SearchMedia({type, query, onSearch}) {
 
   useEffect(() => {
     const fetchSearchOutputs = () => {
-      fetch(`https://api.themoviedb.org/3/search/${type}?api_key=${api_key}&language=en-US&query=${query}&page=1&include_adult=false`)
-        .then(response => response.json())
+      fetch(`https://api.themoviedb.org/3/search/${type}?api_key=${api_key}&${language}&query=${query}&page=1&include_adult=false&${region}`)
         .then(data => handleFetch(data))
         .catch(error => console.error(error));
       };
@@ -62,11 +61,11 @@ function SearchMedia({type, query, onSearch}) {
 
 };
 
-function CarouselRecomendation({onFetch, type, page, route}){
+function CarouselRecomendation({onFetch, type, page, route, language, region}){
 
   useEffect(() => {
     const fetchRecomendations = () => {
-      fetch(`https://api.themoviedb.org/3/${type}/${route}?api_key=${api_key}&${page}`)
+      fetch(`https://api.themoviedb.org/3/${type}/${route}?api_key=${api_key}&${language}&${page}&${region}`)
         .then(response => response.json())
         .then(data => filterInfo(data))
         .catch(error => console.error(error));
@@ -78,6 +77,7 @@ function CarouselRecomendation({onFetch, type, page, route}){
   
   
   const filterInfo = (info) => {
+    console.log(info);
     let mediaArray = [];
     let mediaLength = 10;
     for (let i = 0; i < mediaLength; i++){

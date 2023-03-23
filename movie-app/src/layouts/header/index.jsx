@@ -1,12 +1,13 @@
 import React from 'react'
 import Hamburguer from '../../components/hamburguer'
 import Search from '../../components/search/body'
+import headerData from "../../languages/headerData.json"
 import { Link } from 'react-router-dom';
 
 import logo from "../../assets/logos/alt_short.svg"
 import "./style.css"
 
-function Header() {
+function Header({language}) {
   
   return (
     <div className=' darkBlue flex justify-between items-center w-full h-28 gap-6 z-20'>

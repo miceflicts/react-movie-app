@@ -1,0 +1,18 @@
+{
+    "Languages": {
+      "pt-BR": [
+        {
+            "Movies": "Filmes",
+            "Tv": "Séries",
+            "Search": "Buscar"
+        }
+      ],
+      "en-US": [
+        {
+            "Movies": "Movies",
+            "Tv": "Tv",
+            "Search": "Search"
+        }
+      ]
+    }
+  }
