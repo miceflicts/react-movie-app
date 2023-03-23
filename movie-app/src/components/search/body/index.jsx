@@ -1,9 +1,10 @@
 import React, { useState, useEffect} from 'react';
 import SearchResults from '../results';
 import { SearchMedia } from '../../../api';
+import searchData from "../../../languages/searchData.json"
 import "./style.css"
 
-function Search() {
+function Search({language}) {
     const [inputText, setInputText] = useState("");
     const [isSearchResultVisible, setIsSearchResultVisible] = useState(false)
 
@@ -47,27 +48,27 @@ function Search() {
     
     }, [activeSearchFilter]);
     
-    
+
     return (
       <>
         <div className='flex flex-col items-center w-full'>
           <div className='mb-3'>
-            <button className= {`mr-2 text-gray-200/90 font-bold py-2 px-6 rounded max-[900px]:hidden} ${activeFilter.movie}`} value="movie" onClick={handleFilterChange}>Movie</button>
-            <button className= {`mr-2 text-gray-200/90 font-bold py-2 px-6 rounded max-[900px]:hidden} ${activeFilter.tv}`} value="tv" onClick={handleFilterChange}>Tv</button>
-            <button className= {`mr-2 text-gray-200/90 font-bold py-2 px-6 rounded max-[900px]:hidden} ${activeFilter.person}`} value="person" onClick={handleFilterChange}>People</button>
+            <button className= {`mr-2 text-gray-200/90 font-bold py-2 px-6 rounded max-[900px]:hidden} ${activeFilter.movie}`} value="movie" onClick={handleFilterChange}>{searchData.Languages[language][0]['Movie']}</button>
+            <button className= {`mr-2 text-gray-200/90 font-bold py-2 px-6 rounded max-[900px]:hidden} ${activeFilter.tv}`} value="tv" onClick={handleFilterChange}>{searchData.Languages[language][0]['Tv']}</button>
+            <button className= {`mr-2 text-gray-200/90 font-bold py-2 px-6 rounded max-[900px]:hidden} ${activeFilter.person}`} value="person" onClick={handleFilterChange}>{searchData.Languages[language][0]['People']}</button>
           </div>
           <div className='w-full max-[600px]:w-[90%]'>
             <input
             type="text"
             id="search" 
-            placeholder="Search for Movies or TV Series"
+            placeholder={searchData.Languages[language][0]['Search Placeholder']}
             onChange={handleInputChange}
             className="input text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
           </div>
           {isSearchResultVisible && (
             <>
-              <SearchMedia type={activeSearchFilter} query={inputText} onSearch={handleOnSearch}></SearchMedia>
+              <SearchMedia type={activeSearchFilter} query={inputText} language={language} onSearch={handleOnSearch}></SearchMedia>
               {searchResult && searchResult.length > 0 && (
                 <SearchResults info={searchResult} type={activeSearchFilter}></SearchResults> 
               )}

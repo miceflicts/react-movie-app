@@ -1,0 +1,21 @@
+{
+    "Languages": {
+      "pt-BR": [
+        {
+            "Movie": "Filmes",
+            "Tv": "Séries",
+            "People": "Pessoas",
+            "Search Placeholder": "Procure por Filmes, Séries ou Pessoas"
+        }
+    ],
+    "en-US": [
+        {
+            "Movie": "Movie",
+            "Tv": "Tv",
+            "People": "People",
+            "Search Placeholder": "Search for Movies, TV Series or People"
+
+        }
+      ]
+    }
+  }

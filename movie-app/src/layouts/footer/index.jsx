@@ -1,5 +1,5 @@
 import React from 'react'
-import footerData from "../../languages/footer.json"
+import footerData from "../../languages/footerData.json"
 
 function Footer({language}) {
   return (

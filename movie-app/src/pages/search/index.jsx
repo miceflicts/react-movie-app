@@ -1,10 +1,10 @@
 import React from 'react'
 import Search from "../../components/search/body"
 
-function SearchPage() {
+function SearchPage({language}) {
   return (
     <div className="flex m-auto w-3/4 mt-16 max-[600px]:w-[95%] min-h-[800px]">
-      <Search></Search>
+      <Search language={language}></Search>
     </div>
   )
 }

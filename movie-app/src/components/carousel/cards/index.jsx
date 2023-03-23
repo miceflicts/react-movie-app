@@ -5,10 +5,10 @@ import carouselData from "../../../languages/carouselData.json"
 import 'react-circular-progressbar/dist/styles.css';
 import "./style.css"
 
-function CarouselCards({name, backdrop, genres, overview, type, vote, poster, id, screenWidth}) {
+
+function CarouselCards({name, backdrop, poster, genres, overview, vote, id, type, language, screenWidth}) {
   const [cardType, setCardType] = useState({poster: backdrop, overview: overview})
   
-  const language =  navigator.language || navigator.userLanguage; 
   const movieGenres = carouselData.Languages[language][0]["Movie genres"];
   const tvGenres = carouselData.Languages[language][0]["Tv genres"];
   const genreType = type === "movie" ? movieGenres : tvGenres;

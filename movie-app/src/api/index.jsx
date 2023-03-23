@@ -8,7 +8,6 @@ const api_key = "66bb4395550c25d9a321ac6f8024d4e6";
 function GetRecomended({ type, page, language, region, onMediaChange }) {
 
   const filterInfo = (info) => {
-    console.log(info);
     let mediaArray = [];
     for (let i = 0; i < info.results.length; i++){
       let mediaName = info.results[i].name === undefined ? "title" : "name";
@@ -30,7 +29,7 @@ function GetRecomended({ type, page, language, region, onMediaChange }) {
   }, [type]);
 };
 
-function SearchMedia({type, query, language, region, onSearch}) {
+function SearchMedia({type, query, language, onSearch}) {
 
   const handleFetch = (info) =>{
     let mediaArray = [];
@@ -50,7 +49,8 @@ function SearchMedia({type, query, language, region, onSearch}) {
 
   useEffect(() => {
     const fetchSearchOutputs = () => {
-      fetch(`https://api.themoviedb.org/3/search/${type}?api_key=${api_key}&${language}&query=${query}&page=1&include_adult=false&${region}`)
+      fetch(`https://api.themoviedb.org/3/search/${type}?api_key=${api_key}&language=${language}&page=1&query=${query}&include_adult=false`)
+        .then(response => response.json())
         .then(data => handleFetch(data))
         .catch(error => console.error(error));
       };
@@ -77,7 +77,6 @@ function CarouselRecomendation({onFetch, type, page, route, language, region}){
   
   
   const filterInfo = (info) => {
-    console.log(info);
     let mediaArray = [];
     let mediaLength = 10;
     for (let i = 0; i < mediaLength; i++){

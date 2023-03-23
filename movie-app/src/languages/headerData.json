@@ -2,6 +2,7 @@
     "Languages": {
       "pt-BR": [
         {
+            "Home": "Home",
             "Movies": "Filmes",
             "Tv": "Séries",
             "Search": "Buscar"
@@ -9,6 +10,7 @@
       ],
       "en-US": [
         {
+            "Home": "Home",
             "Movies": "Movies",
             "Tv": "Tv",
             "Search": "Search"

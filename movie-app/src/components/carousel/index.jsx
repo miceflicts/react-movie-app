@@ -11,6 +11,7 @@ import CarouselCards from './cards';
 function Carousel({type, route, page, language, region}) {
     const [carouselInfo, setCarouselInfo] = useState(null);
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    const cardLanguageData = language.replace("language=", "");
 
     const handleWidthChange = () => {
         let newWidth = window.innerWidth;
@@ -32,11 +33,6 @@ function Carousel({type, route, page, language, region}) {
     const handleFetch = (event) => {
         setCarouselInfo(event);
     };
-
-    useEffect(() => {
-      /* onsole.log(carouselInfo); */
-    }, [carouselInfo])
-    
     
     return (
         <>
@@ -61,6 +57,7 @@ function Carousel({type, route, page, language, region}) {
                                 vote={media.vote}
                                 id={media.id}
                                 type={setType}
+                                language={cardLanguageData}
                                 screenWidth={screenWidth}
                             />
                         </SwiperSlide>
