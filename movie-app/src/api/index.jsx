@@ -93,8 +93,52 @@ function CarouselRecomendation({onFetch, type, page, route, language, region}){
     };
     onFetch(mediaArray);
   }
-  
+}
+
+function GetPersonInfo({onFetch, onWorksFetch, personId, language}){
+  useEffect(() => {
+    const fetchPersonInfo = () => {
+      fetch(`https://api.themoviedb.org/3/person/${personId}?api_key=${api_key}&language=${language}`)
+        .then(response => response.json())
+        .then(data => filterInfo(data))
+        .catch(error => console.error(error));
+    };
+    const fetchPersonWorks = () => {
+      fetch(`https://api.themoviedb.org/3/person/${personId}/combined_credits?api_key=${api_key}&language=${language}`)
+        .then(response => response.json())
+        .then(data => filterWorks(data))
+        .catch(error => console.error(error));
+    };
+
+    
+    fetchPersonInfo();
+    fetchPersonWorks();
+  }, [])
+
+  const filterInfo = (info) => {
+    let mediaArray = [];
+    mediaArray.push({name: info.name, birthDay: info.birthday, deathDay: info.deathDay, biography: info.biography, image: info.profile_path})
+    onFetch(mediaArray);
+  }
+
+  const filterWorks = (info) => {
+    console.log(info)
+    let worksArray = [];
+    let mediaLength = 10;
+    for (let i = 0; i < mediaLength; i++){
+      let canPush = true;
+      let mediaName = info.cast[i].title === undefined ? "name" : "title";
+      if (info.cast[i].poster_path === null){
+        canPush = false;
+        mediaLength++;
+      }
+      if (canPush){
+        worksArray.push({name: info.cast[i][mediaName], poster: info.cast[i].poster_path, vote: info.cast[i].vote_average, date: info.cast[i].release_date, id: info.cast[i].id, type: info.cast[i].media_type});
+      }
+    }
+    onWorksFetch(worksArray);
+  }
 }
 
 export default GetRecomended;
-export { SearchMedia, CarouselRecomendation };
+export { SearchMedia, CarouselRecomendation, GetPersonInfo };
