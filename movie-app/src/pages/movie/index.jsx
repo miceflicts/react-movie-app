@@ -1,6 +1,7 @@
 import React from 'react';
 import Carousel from '../../components/carousel';
 import Recomended from '../../components/recommendations';
+import Footer from '../../layouts/footer';
 import movieData from "../../languages/movieData.json"
 
 function Movie({language, region}) {

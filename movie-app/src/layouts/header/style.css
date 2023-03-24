@@ -1,7 +1,3 @@
-.darkBlue{
-    background-color: #161c24;
-}
-
 @media screen and (max-width: 900px) {
   .logo{
       margin-left: 1rem !important;

@@ -1,6 +1,5 @@
 import React from 'react'
 import Hamburguer from '../../components/hamburguer'
-import Search from '../../components/search/body'
 import headerData from "../../languages/headerData.json"
 import { Link } from 'react-router-dom';
 
@@ -10,7 +9,7 @@ import "./style.css"
 function Header({language}) {
   
   return (
-    <div className=' darkBlue flex justify-between items-center w-full h-28 gap-6 z-20'>
+    <div className=' bg-[#161c24] flex justify-between items-center w-full h-28 gap-6 z-20'>
 
         <div className="logo w-[200px] min-w-[200px] ml-10">
           <Link to="/">
@@ -29,7 +28,7 @@ function Header({language}) {
 
 
         <div className="hamburguer w-[45px] min-w-[45px] mr-4 hidden max-[900px]:block">
-          <Hamburguer></Hamburguer>
+          <Hamburguer language={language}></Hamburguer>
         </div>
     </div>
   )

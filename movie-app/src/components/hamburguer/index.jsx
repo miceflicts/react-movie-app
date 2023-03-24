@@ -2,7 +2,7 @@ import React,{useState, useEffect} from 'react'
 import hamburguer from "../../assets/menu/hamburguer.png"
 import HamburguerMenu from './hamburguerMenu';
 
-function Hamburguer() {
+function Hamburguer({language}) {
     const [isVisible, setIsVisible] = useState(false);
     const [screenWidth, setScreenWidth] = useState(0);
 
@@ -63,7 +63,7 @@ function Hamburguer() {
             <img src={hamburguer} onClick={handleClick} alt="" className='w-full cursor-pointer'/>
             
             {!isVisible ? null : (
-                <HamburguerMenu onClick={handleHamburguerClick}></HamburguerMenu>
+                <HamburguerMenu language={language} onClick={handleHamburguerClick}></HamburguerMenu>
             )}
         </>
     )
