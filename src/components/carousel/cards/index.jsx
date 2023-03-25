@@ -59,7 +59,7 @@ function CarouselCards({name, backdrop, poster, genres, overview, vote, id, type
             })}
           </div>
           <h5 className={` overview min-w-[25vw] max-w-[50vw] text-gray-200/100 max-[1400px]:max-w-[90vw] max-lines`}>{cardType.overview}</h5>
-          <Link to={`react-movie-app/${type}/${id}`} className="contents"><button className=" watchButton bg-red-700 hover:bg-red-800 text-gray-200/90 font-bold py-2 px-6 rounded mr-10 min-w-[25%] max-w-[150px] max-h-[40px]">{carouselData.Languages[language][0]['Watch button']}</button></Link>
+          <Link to={`/react-movie-app/${type}/${id}`} className="contents"><button className=" watchButton bg-red-700 hover:bg-red-800 text-gray-200/90 font-bold py-2 px-6 rounded mr-10 min-w-[25%] max-w-[150px] max-h-[40px]">{carouselData.Languages[language][0]['Watch button']}</button></Link>
         </div>
         <img src={cardType.poster} className=" w-full block opacity-40" />
       </div>
