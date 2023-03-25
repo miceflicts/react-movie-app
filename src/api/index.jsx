@@ -12,7 +12,11 @@ function GetRecomended({ type, page, language, region, onMediaChange }) {
     for (let i = 0; i < info.results.length; i++){
       let mediaName = info.results[i].name === undefined ? "title" : "name";
       let getPoster = info.results[i].poster_path === null ? "backdrop_path" : "poster_path";
-      mediaArray.push({name: info.results[i][mediaName], poster: info.results[i][getPoster], type: info.results[i].media_type, id: info.results[i].id});
+
+      if (info.results[i][mediaName] !== null && info.results[i][getPoster] !== null) {
+        mediaArray.push({name: info.results[i][mediaName], poster: info.results[i][getPoster], type: info.results[i].media_type, id: info.results[i].id});
+      }
+
     }
     onMediaChange(mediaArray);
   };
@@ -36,10 +40,10 @@ function SearchMedia({type, query, language, onSearch}) {
     for (let i = 0; i < info.results.length; i++){
       let mediaName = info.results[i].name === undefined ? "title" : "name";
       let getPoster = info.results[i].poster_path === null ? "backdrop_path" : "poster_path";
+      
       if (type === "person"){
         getPoster = "profile_path";
       }
-
       if (info.results[i][mediaName] !== null && info.results[i][getPoster] !== null) {
         mediaArray.push({name: info.results[i][mediaName], poster: info.results[i][getPoster], id: info.results[i].id})
       }
@@ -80,20 +84,17 @@ function CarouselRecomendation({onFetch, type, page, route, language, region}){
     let mediaArray = [];
     let mediaLength = 10;
     for (let i = 0; i < mediaLength; i++){
-      let canPush = true;
-  
-      if (info.results[i].backdrop_path === null || info.results[i].poster_path === null){
-        mediaLength++;
-        canPush = false;
-      }
-      if (canPush){
-        let mediaName = info.results[i].name === undefined ? "title" : "name";
+      let mediaName = info.results[i].name === undefined ? "title" : "name";
+
+      if (info.results[i][mediaName] !== null && info.results[i].poster_path !== null){
         mediaArray.push({name: info.results[i][mediaName], id: info.results[i].id, overview: info.results[i].overview, vote: info.results[i].vote_average, genre_id: info.results[i].genre_ids , backdrop: info.results[i].backdrop_path, poster: info.results[i].poster_path, type: info.results[i].media_type})
       }
-    };
+    }
     onFetch(mediaArray);
-  }
-}
+  };
+
+};
+
 
 function GetPersonInfo({onFetch, onWorksFetch, personId, language}){
   useEffect(() => {
@@ -122,18 +123,16 @@ function GetPersonInfo({onFetch, onWorksFetch, personId, language}){
   }
 
   const filterWorks = (info) => {
-    console.log(info)
     let worksArray = [];
     let mediaLength = 10;
     for (let i = 0; i < mediaLength; i++){
-      let canPush = true;
       let mediaName = info.cast[i].title === undefined ? "name" : "title";
-      if (info.cast[i].poster_path === null){
-        canPush = false;
-        mediaLength++;
-      }
-      if (canPush){
+
+      if (info.cast[i].poster_path !== null){
         worksArray.push({name: info.cast[i][mediaName], poster: info.cast[i].poster_path, vote: info.cast[i].vote_average, date: info.cast[i].release_date, id: info.cast[i].id, type: info.cast[i].media_type});
+      }
+      else {
+        mediaLength++;
       }
     }
     onWorksFetch(worksArray);
