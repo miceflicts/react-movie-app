@@ -12,18 +12,18 @@ function Header({language}) {
     <div className=' bg-[#161c24] flex justify-between items-center w-full h-28 gap-6 z-20'>
 
         <div className="logo w-[200px] min-w-[200px] ml-10">
-          <Link to="/">
+          <Link to="react-movie-app/">
             <img src={logo} alt="Website Logo" className='cursor-pointer'/>
           </Link>
         </div>
 
         <div className='flex items-center justify-center gap-10 text-gray-200/90 font-medium text-base max-[900px]:hidden'>
           <ul className='flex gap-10 text-gray-200/90 font-medium text-base cursor-pointer max-[900px]:hidden'>
-            <Link to="/" className='hover:text-gray-200/70'><li>{headerData.Languages[language][0]['Home']}</li></Link>
-            <Link to="/movie" className='hover:text-gray-200/70'><li>{headerData.Languages[language][0]['Movies']}</li></Link>
-            <Link to="/tv" className='hover:text-gray-200/70'><li>{headerData.Languages[language][0]['Tv']}</li></Link>
+            <Link to="react-movie-app/" className='hover:text-gray-200/70'><li>{headerData.Languages[language][0]['Home']}</li></Link>
+            <Link to="react-movie-app/movie" className='hover:text-gray-200/70'><li>{headerData.Languages[language][0]['Movies']}</li></Link>
+            <Link to="react-movie-app/tv" className='hover:text-gray-200/70'><li>{headerData.Languages[language][0]['Tv']}</li></Link>
           </ul>
-          <Link to="/search"><button className=" bg-[#0d1014] hover:bg-[#060708] text-gray-200/90 font-bold py-2 px-6 rounded mr-10 max-[900px]:hidden">{headerData.Languages[language][0]['Search']}</button></Link>
+          <Link to="react-movie-app/search"><button className=" bg-[#0d1014] hover:bg-[#060708] text-gray-200/90 font-bold py-2 px-6 rounded mr-10 max-[900px]:hidden">{headerData.Languages[language][0]['Search']}</button></Link>
         </div>
 
 
