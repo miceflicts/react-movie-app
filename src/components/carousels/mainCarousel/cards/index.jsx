@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import carouselData from "../../../languages/carouselData.json"
+import carouselData from "../../../../languages/carouselData.json"
 import 'react-circular-progressbar/dist/styles.css';
 import "./style.css"
 
@@ -14,6 +14,7 @@ function CarouselCards({name, backdrop, poster, genres, overview, vote, id, type
   const genreType = type === "movie" ? movieGenres : tvGenres;
   const cardGenres = []
 
+  // filter the genres cards
   const filterGenres = () => {
     for (let i = 0; i < genres.length; i++){
       const genreId = genres[i];
@@ -25,9 +26,9 @@ function CarouselCards({name, backdrop, poster, genres, overview, vote, id, type
   } 
 
   const handleWidthChange = () => {
-    let type = screenWidth <= 800 ? poster : backdrop
+    let mediaType = screenWidth <= 800 ? poster : backdrop
     let newOverview = screenWidth <= 800 ? "" : overview
-    setCardType({poster: type, overview: newOverview});
+    setCardType({poster: mediaType, overview: newOverview});
   }
   useEffect(() => {
     handleWidthChange();
@@ -35,7 +36,7 @@ function CarouselCards({name, backdrop, poster, genres, overview, vote, id, type
   }, [screenWidth])
 
   filterGenres();
-  
+
 
   return (
       <div className=" w-screen max-h-[75vh]">

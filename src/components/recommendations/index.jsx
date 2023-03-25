@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import GetRecomended from '../../api'
-import CardCarousel from '../cardCarousel'
+import CardCarousel from '../carousels/cardCarousel'
 
 function Recomended({title, route, type, language, region, page}) {
   const [mediaInfo, setMediaInfo] = useState(null)

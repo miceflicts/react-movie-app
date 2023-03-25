@@ -1,5 +1,5 @@
 import React from 'react';
-import Carousel from '../../components/carousel';
+import Carousel from '../../components/carousels/mainCarousel';
 import Recomended from '../../components/recommendations';
 import Footer from '../../layouts/footer';
 import movieData from "../../languages/movieData.json"
@@ -10,9 +10,9 @@ function Movie({language, region}) {
     {title: `${movieData.Languages[language][0]['First section']}`, route: "/movie/popular", type: "movie", page: "page=2", language: `language=${language}`, region: `region=${region}`}, // movie
     {title: `${movieData.Languages[language][0]['Second section']}`, route: "/movie/top_rated", type: "movie", page: "page=2", language: `language=${language}`, region: `region=${region}`},
     {title: `${movieData.Languages[language][0]['Third section']}`, route: "/movie/upcoming", type: "movie", page: "page=1", language: `language=${language}`, region: `region=${region}`}, // movie
-    {title: `${movieData.Languages[language][0]['Fourth section']}`, route: "/movie/now_playing", type: "movie", page: "page=2", language: `language=${language}`, region: `region=${region}`}]; // movie
+    {title: `${movieData.Languages[language][0]['Fourth section']}`, route: "/movie/now_playing", type: "movie", page: "page=1", language: `language=${language}`, region: `region=${region}`}]; // movie
   
-    const carrouselInfos = {carrouselType: "movie/", carrouselRoute: "popular", page: "page=3", language: `language=${language}`, region: `region=${region}`} // 10
+    const carrouselInfos = {carrouselType: "movie", carrouselRoute: "popular", page: "page=3", language: `language=${language}`, region: `region=${region}`} // 10
   
     return (
       <>

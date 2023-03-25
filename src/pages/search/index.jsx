@@ -1,5 +1,5 @@
 import React from 'react'
-import Search from "../../components/search/body"
+import Search from "../../layouts/search/body"
 
 function SearchPage({language}) {
   return (

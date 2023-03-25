@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
-import { CarouselRecomendation } from '../../api';
+import { CarouselRecomendation } from '../../../api';
 import 'swiper/css';
 import "swiper/css/autoplay";
 import "swiper/css/pagination";

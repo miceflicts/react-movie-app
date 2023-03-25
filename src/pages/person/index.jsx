@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState} from 'react'
 import { Link, useParams } from 'react-router-dom';
 import { GetPersonInfo } from '../../api';
 import Footer from '../../layouts/footer';
@@ -18,13 +18,7 @@ function Person() {
     const handleWorksFetch = (event) => {
       setWorksInfo(event);
     }
-    useEffect(() => {
-      console.log(worksInfo);
-
-    }, [worksInfo])
     
-    
-  
     return (
       <>
          <GetPersonInfo personId={id} language={language} onFetch={handleFetch} onWorksFetch={handleWorksFetch}></GetPersonInfo>
@@ -49,7 +43,9 @@ function Person() {
               </div>
               <Footer language={language}></Footer>
           </div>
-          : null}
+          : <div className='m-auto w-3/4 mt-20 max-[600px]:w-[95%] min-h-[800px] gap-10 flex flex-col items-center'>
+              <div className=' text-white font-bold text-2xl'> No info from the person</div>
+            </div>}
       </>
     )
 }

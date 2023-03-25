@@ -1,11 +1,11 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
-import Cards from '../cards';
+import Cards from '../../cardsRecommendations';
 import 'swiper/css';
 import "swiper/css/navigation";
 import "./style.css"
-import Placeholder from '../cards/placeholder';
+import Placeholder from '../../cardsRecommendations/placeholder';
 
 function CardCarousel({recommendations, type}) {
     const description = [{description: "Loading"}, {description: "Loading"},{description: "Loading"}, {description: "Loading"}, {description: "Loading"}, {description: "Loading"}, {description: "Loading"}, {description: "Loading"}];

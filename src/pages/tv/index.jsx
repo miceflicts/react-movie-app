@@ -1,5 +1,5 @@
 import React from 'react'
-import Carousel from '../../components/carousel';
+import Carousel from '../../components/carousels/mainCarousel';
 import Recomended from '../../components/recommendations';
 import tvData from "../../languages/tvData.json"
 import Footer from '../../layouts/footer';
@@ -12,7 +12,7 @@ function TvShow({language, region}) {
     {title: `${tvData.Languages[language][0]['Third section']}`, route: "/movie/upcoming", type: "tv", page: "page=1", language: `language=${language}`, region: `region=${region}`},
     {title: `${tvData.Languages[language][0]['Fourth section']}`, route: "/tv/on_the_air", type: "tv", page: "page=3", language: `language=${language}`, region: `region=${region}`}];
   
-    const carrouselInfos = {carrouselType: "tv/", carrouselRoute: "popular", page: "page=10", language: `language=${language}`, region: `region=${region}`}
+    const carrouselInfos = {carrouselType: "tv", carrouselRoute: "popular", page: "page=10", language: `language=${language}`, region: `region=${region}`}
   
     return (
       <>

@@ -1,7 +1,7 @@
 import React from 'react'
 import Recomended from "../../components/recommendations"
 import Footer from '../../layouts/footer';
-import Carousel from '../../components/carousel';
+import Carousel from '../../components/carousels/mainCarousel';
 import homeData from "../../languages/homeData.json"
 
 function Home({language, region}) {
