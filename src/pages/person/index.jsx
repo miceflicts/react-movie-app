@@ -42,7 +42,7 @@ function Person() {
                 <div className=' w-[100px] h-[6px] bg-red-600'></div>
                 <div className='flex flex-wrap justify-center items-center gap-4 mt-5 mb-10'>
                   {worksInfo.map((info, index) => {
-                    return <Link to={`/${info.type}/${info.id}`}><img key={index} src={`https://image.tmdb.org/t/p/original/${info.poster}`} className="max-w-[300px] max-[850px]:min-w-[45%] max-[850px]:max-w-[0px] aspect-[3.4/5]"></img></Link>
+                    return <Link to={`/${info.type}/${info.id}`} key={index} className="contents"><img key={index} src={`https://image.tmdb.org/t/p/original/${info.poster}`} className="max-w-[300px] max-[850px]:min-w-[45%] max-[850px]:max-w-[0px] aspect-[3.4/5] hover:opacity-40"></img></Link>
                   })}
                 </div>
               </div>
