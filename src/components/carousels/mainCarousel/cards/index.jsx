@@ -2,6 +2,7 @@ import React,{useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import carouselData from "../../../../languages/carouselData.json"
+import genresData from "../../../../languages/genresData.json"
 import 'react-circular-progressbar/dist/styles.css';
 import "./style.css"
 
@@ -9,10 +10,10 @@ import "./style.css"
 function CarouselCards({name, backdrop, poster, genres, overview, vote, id, type, language, screenWidth}) {
   const [cardType, setCardType] = useState({poster: backdrop, overview: overview})
   
-  const movieGenres = carouselData.Languages[language][0]["Movie genres"];
-  const tvGenres = carouselData.Languages[language][0]["Tv genres"];
+  const movieGenres = genresData.Languages[language][0]["Movie genres"];
+  const tvGenres = genresData.Languages[language][0]["Tv genres"];
   const genreType = type === "movie" ? movieGenres : tvGenres;
-  const cardGenres = []
+  const cardGenres = [];
 
   // filter the genres cards
   const filterGenres = () => {
