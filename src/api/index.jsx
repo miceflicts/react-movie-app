@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-
-const api_key = "66bb4395550c25d9a321ac6f8024d4e6";
+import { api_key } from '../../config';
 
 // name: tv
 // title: movie
@@ -139,5 +138,54 @@ function GetPersonInfo({onFetch, onWorksFetch, personId, language}){
   }
 }
 
+function GetMediasDetails({type, id, language, onFetch}){
+    useEffect(() => {
+      const fetchMediaGeneralDetails = () => {
+        return fetch(`https://api.themoviedb.org/3/${type}/${id}?api_key=${api_key}&language=${language}`)
+          .then(response => response.json());
+      };
+      const fetchMediaCredits = () => {
+        return fetch(`https://api.themoviedb.org/3/${type}/${id}/credits?api_key=${api_key}&language=${language}`)
+          .then(response => response.json());
+      };
+      const fetchMediaImages = () => {
+        return fetch(`https://api.themoviedb.org/3/${type}/${id}/images?api_key=${api_key}`)
+          .then(response => response.json());
+      };
+      const fetchMediaVideos = () => {
+        return fetch(`https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${api_key}&language=${language}`)
+          .then(response => response.json());
+      };
+      const fetchMediaRecomendations = () => {
+        return fetch(`https://api.themoviedb.org/3/${type}/${id}/recommendations?api_key=${api_key}&language=${language}`)
+          .then(response => response.json());
+      };
+
+      Promise.all([
+        fetchMediaGeneralDetails(),
+        fetchMediaCredits(),
+        fetchMediaImages(),
+        fetchMediaVideos(),
+        fetchMediaRecomendations(),
+      ])
+      .then(([generalData, credits, images, videos, recommendations, reviews]) => {
+        filterInfo(generalData, credits, images, videos, recommendations, reviews);
+      })
+      .catch(error => console.error(error));
+    }, []);
+    
+    const filterInfo = (generalData, credits, images, videos, recommendations) => {
+      let mediaArray = [];
+      let mediaName = generalData.name === undefined ? "title" : "name";
+      mediaArray.push(
+        {name: generalData[mediaName], tagline: generalData.tagline, overview: generalData.overview, first_air_date: generalData.first_air_date, genres: generalData.genres, vote_average: generalData.vote_average, backdrop_path: generalData.backdrop_path, poster_path: generalData.poster_path, id: generalData.id},
+        {cast: credits.cast},
+        {mediaBackdrops: images.backdrops.slice(0,20), mediaPosters: images.posters.slice(0,20)},
+        {videos: videos.results.slice(0,10)},
+        {recommendations: recommendations.results.slice(0,20)});
+      onFetch(mediaArray);
+    };
+}
+
 export default GetRecomended;
-export { SearchMedia, CarouselRecomendation, GetPersonInfo };
+export { SearchMedia, CarouselRecomendation, GetPersonInfo, GetMediasDetails };

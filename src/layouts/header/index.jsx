@@ -9,7 +9,7 @@ import "./style.css"
 function Header({language}) {
   
   return (
-    <div className=' bg-[#161c24] flex justify-between items-center w-full h-28 gap-6 z-20'>
+    <div className=' absolute bg-transparent top-0 flex justify-between items-center w-full h-28 gap-6 z-20'>
 
         <div className="logo w-[200px] min-w-[200px] ml-10">
           <Link to="/react-movie-app/">
