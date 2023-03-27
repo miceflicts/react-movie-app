@@ -5,3 +5,7 @@
     text-overflow: ellipsis;
     -webkit-line-clamp: 6;
 }
+
+body{
+    overflow-x: hidden !important;
+}
