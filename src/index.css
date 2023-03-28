@@ -39,3 +39,8 @@
 .bg-color{
   background-color: #0f1318fa;
 }
+
+/* target the active bullet */
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: rgb(31, 29, 29);
+}

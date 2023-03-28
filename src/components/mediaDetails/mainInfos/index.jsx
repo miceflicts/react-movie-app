@@ -43,7 +43,7 @@ function MainInfos({type, id, language , onFetch}) {
           <>
           <div className='flex flex-col'>
             <div className=' w-full flex max-[900px]:flex-col max-[900px]:items-center gap-10 mt-10'>
-              <img className='absolute top-0 left-0 w-full z-[-10] max-h-[850px] opacity-50 min-w-[1050px] object-cover' src={`https://image.tmdb.org/t/p/original/${mediaInfo[0].backdrop_path}`} alt=""></img>
+              <img className='absolute top-0 left-0 w-full max-w-full z-[-10] max-h-[850px] opacity-50 min-w-[1050px] object-cover' src={`https://image.tmdb.org/t/p/original/${mediaInfo[0].backdrop_path}`} alt=""></img>
               <img className=' bg-slate-600 shadow-2xl w-[40%] max-w-[520px] min-w-[250px] max-[900px]:w-[69%] max-[900px]:max-w-[400px]' src={`https://image.tmdb.org/t/p/original/${mediaInfo[0].poster_path}`}></img>
               <div className=' text-white mt-5 flex flex-col w-2/4 gap-5 max-[900px]:w-full'>
                 <h5 className=' text-5xl font-bold'>{mediaInfo[0].name}</h5>

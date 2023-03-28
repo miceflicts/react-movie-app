@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Footer from '../../layouts/footer';
 import MainInfos from '../../components/mediaDetails/mainInfos';
 import Cast from '../../components/mediaDetails/cast';
+import Backdrops from '../../components/mediaDetails/backdrops';
 
 function TvShowDetails() {
     const [mediaInfo, setMediaInfo] = useState(null)
@@ -23,6 +24,8 @@ function TvShowDetails() {
               </div>
               
               <Cast info={mediaInfo}></Cast>
+              <Backdrops info={mediaInfo}></Backdrops>
+
               <Footer language={language}></Footer>
           </div>
       </>

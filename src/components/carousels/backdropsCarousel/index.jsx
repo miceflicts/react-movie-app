@@ -4,7 +4,6 @@ import { Pagination, Autoplay } from "swiper";
 import 'swiper/css';
 import "swiper/css/autoplay";
 import "swiper/css/pagination";
-import "style.css"
 
 function BackdropsCarousel({ info }) {
   

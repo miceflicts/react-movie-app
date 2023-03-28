@@ -6,6 +6,6 @@
     -webkit-line-clamp: 6;
 }
 
-body{
-    overflow-x: hidden !important;
+html, body {
+  overflow-x: hidden;
 }

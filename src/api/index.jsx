@@ -153,7 +153,7 @@ function GetMediasDetails({type, id, language, onFetch}){
           .then(response => response.json());
       };
       const fetchMediaVideos = () => {
-        return fetch(`https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${api_key}&language=${language}`)
+        return fetch(`https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${api_key}`)
           .then(response => response.json());
       };
       const fetchMediaRecomendations = () => {
