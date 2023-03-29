@@ -4,6 +4,8 @@ import Footer from '../../layouts/footer';
 import MainInfos from '../../components/mediaDetails/mainInfos';
 import Cast from '../../components/mediaDetails/cast';
 import Backdrops from '../../components/mediaDetails/backdrops';
+import Posters from '../../components/mediaDetails/posters';
+import MediaRecommendations from '../../components/mediaDetails/recomendations';
 
 function TvShowDetails() {
     const [mediaInfo, setMediaInfo] = useState(null)
@@ -25,6 +27,8 @@ function TvShowDetails() {
               
               <Cast info={mediaInfo}></Cast>
               <Backdrops info={mediaInfo}></Backdrops>
+              <Posters info={mediaInfo}></Posters>
+              <MediaRecommendations info={mediaInfo}></MediaRecommendations>
 
               <Footer language={language}></Footer>
           </div>

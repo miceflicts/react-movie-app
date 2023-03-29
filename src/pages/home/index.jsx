@@ -3,7 +3,6 @@ import Recomended from "../../components/recommendations"
 import Footer from '../../layouts/footer';
 import Carousel from '../../components/carousels/mainCarousel';
 import homeData from "../../languages/homeData.json"
-import YouTube from 'react-youtube';
 
 function Home({language, region}) {
   // Title of each recomendation section
