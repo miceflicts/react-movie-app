@@ -5,13 +5,14 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
 import "./style.css"
 import 'react-circular-progressbar/dist/styles.css';
 
-function MediaMainInfos({type, id, language , onFetch}) {
+function MediaMainInfos({type, id, language , onFetch, onExecuteScroll}) {
   const [mediaInfo, setMediaInfo] = useState(null);
   const [cardGenres, setCardGenres] = useState([]);
 
   const movieGenres = genresData.Languages[language][0]["Movie genres"];
   const tvGenres = genresData.Languages[language][0]["Tv genres"];
   const genreType = type === "movie" ? movieGenres : tvGenres;
+
 
   // filter the genres cards
   const filterGenres = () => {
@@ -69,7 +70,7 @@ function MediaMainInfos({type, id, language , onFetch}) {
                 }
                 {mediaInfo[0].overview.length > 0 ? <h5 className='text-gray-200 text-base max-lines'>{mediaInfo[0].overview}</h5>
                 : <h5 className='text-gray-200 text-base max-lines'>Não temos nenhuma informação sobre essa mídia, caso possua alguma, favor nos contate</h5>}
-                <button className=" watchButton bg-red-700 hover:bg-red-800 text-gray-200/90 font-bold py-2 px-6 rounded mr-10 min-w-[25%] max-w-[150px] max-h-[40px]">Ver agora</button>
+                <button className=" watchButton bg-red-700 hover:bg-red-800 text-gray-200/90 font-bold py-2 px-6 rounded mr-10 min-w-[25%] max-w-[150px] max-h-[40px]" onClick={onExecuteScroll}>Ver agora</button>
               </div>
             </div>
           </div>

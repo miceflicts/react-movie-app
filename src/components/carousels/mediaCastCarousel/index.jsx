@@ -5,7 +5,6 @@ import 'swiper/css';
 import "swiper/css/pagination";
 
 function MediaCastCarousel({ info }) {
-  console.log(info);
   
   return (
     <>

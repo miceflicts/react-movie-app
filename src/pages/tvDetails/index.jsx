@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useRef} from 'react'
 import { useParams } from 'react-router-dom';
 import Footer from '../../layouts/footer';
 import MediaMainInfos from '../../components/mediaDetails/mainInfos';
@@ -14,21 +14,30 @@ function TvShowDetails() {
     const type = "tv";
     const language =  navigator.language || navigator.userLanguage; 
 
+    const videoRef = useRef(null);
+
     const handleFetch = (event) => {
       setMediaInfo(event);
     }
     
+    const handleExecuteScroll = () => {
+      videoRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   
     return (
       <>
           <div className='m-auto w-3/4 mt-20 max-[1300px]:w-[95%] min-h-[800px] gap-10'>
               <div className='flex gap-10'>
-                <MediaMainInfos type={type} id={id} language={language} onFetch={handleFetch}></MediaMainInfos>
+                <MediaMainInfos type={type} id={id} language={language} onFetch={handleFetch} onExecuteScroll={handleExecuteScroll}></MediaMainInfos>
               </div>
               
               <MediaCast info={mediaInfo}></MediaCast>  
               <MediaBackdrops info={mediaInfo}></MediaBackdrops>
-              <MediaVideos info={mediaInfo}></MediaVideos>
+
+              <div ref={videoRef}>
+                <MediaVideos info={mediaInfo}></MediaVideos>
+              </div>
+
               <MediaPosters info={mediaInfo}></MediaPosters>
               <MediaRecommendations info={mediaInfo}></MediaRecommendations>
 
