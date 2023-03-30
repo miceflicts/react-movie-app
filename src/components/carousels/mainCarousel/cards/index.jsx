@@ -40,7 +40,7 @@ function CarouselCards({name, backdrop, poster, genres, overview, vote, id, type
 
 
   return (
-      <div className=" w-screen max-h-[85vh]">
+      <div className=" w-screen max-h-[85lvh]">
         <div className='absolute flex flex-col justify-start mr-2 left-10 top-24 text-white z-10 gap-8 max-[800px]:top-20'>
           <h5 className={` name max-[1100px]:text-[3rem]`}>{name}</h5>
           <div className=' gap-2 flex flex-wrap items-center'>
