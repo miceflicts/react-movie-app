@@ -3,9 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import "swiper/css/pagination";
 
-function MediaCarousel({ info }) {
-  console.log(info);
-  
+function MediaPosterCarousel({ info }) {
 
   return (
     <>
@@ -13,15 +11,16 @@ function MediaCarousel({ info }) {
           className='mt-10'
           centeredSlides={false} // Add this prop to align the slides to the start
           slidesPerView={2}
-          width={550}
+          spaceBetween={20}
+          width={650}
         >
-          {info[1].cast.map((media, index) => {
+          {info[2].mediaPosters.map((media, index) => {
             return (
               <SwiperSlide key={index}>
                 <img
                   key={index}
-                  className="h-96"
-                  src={`https://image.tmdb.org/t/p/original${media.profile_path}`}
+                  src={`https://image.tmdb.org/t/p/original${media.file_path}`}
+                  className="aspect-[3.5/5]"
                 />
               </SwiperSlide>
             );
@@ -31,4 +30,4 @@ function MediaCarousel({ info }) {
   );
 }
 
-export default MediaCarousel;
+export default MediaPosterCarousel;

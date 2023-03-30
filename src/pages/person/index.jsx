@@ -33,7 +33,7 @@ function Person() {
                 </div>
               </div>
               <div className=' flex flex-col text-white gap-2'>
-                <h5 className=' inline-block underline underline-offset-auto decoration-red-500 text-3xl font-bold'>{personData.Languages[language][0]['Text']}</h5>
+                <h5 className=' inline-block text-3xl font-bold'>{personData.Languages[language][0]['Text']}</h5>
                 
                 <div className='flex flex-wrap justify-center items-center gap-4 mt-5 mb-10'>
                   {worksInfo.map((info, index) => {

@@ -5,7 +5,7 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
 import "./style.css"
 import 'react-circular-progressbar/dist/styles.css';
 
-function MainInfos({type, id, language , onFetch}) {
+function MediaMainInfos({type, id, language , onFetch}) {
   const [mediaInfo, setMediaInfo] = useState(null);
   const [cardGenres, setCardGenres] = useState([]);
 
@@ -43,7 +43,7 @@ function MainInfos({type, id, language , onFetch}) {
           <>
           <div className='flex flex-col'>
             <div className=' w-full flex max-[900px]:flex-col max-[900px]:items-center gap-10 mt-10'>
-              <img className='absolute top-0 left-0 w-full max-w-full z-[-10] max-h-[850px] opacity-50 min-w-[1050px] object-cover' src={`https://image.tmdb.org/t/p/original/${mediaInfo[0].backdrop_path}`} alt=""></img>
+              <img className='absolute top-0 left-0 w-full z-[-10] max-h-[850px] opacity-50 min-h-[550px] object-cover' src={`https://image.tmdb.org/t/p/original/${mediaInfo[0].backdrop_path}`} alt=""></img>
               <img className=' bg-slate-600 shadow-2xl w-[40%] max-w-[520px] min-w-[250px] max-[900px]:w-[69%] max-[900px]:max-w-[400px]' src={`https://image.tmdb.org/t/p/original/${mediaInfo[0].poster_path}`}></img>
               <div className=' text-white mt-5 flex flex-col w-2/4 gap-5 max-[900px]:w-full'>
                 <h5 className=' text-5xl font-bold'>{mediaInfo[0].name}</h5>
@@ -67,7 +67,8 @@ function MainInfos({type, id, language , onFetch}) {
                 {mediaInfo[0].tagline && 
                   <h5 className='text-gray-300 text-base'>{mediaInfo[0].tagline}</h5>
                 }
-                <h5 className='text-gray-200 text-base max-lines'>{mediaInfo[0].overview}</h5>
+                {mediaInfo[0].overview.length > 0 ? <h5 className='text-gray-200 text-base max-lines'>{mediaInfo[0].overview}</h5>
+                : <h5 className='text-gray-200 text-base max-lines'>Não temos nenhuma informação sobre essa mídia, caso possua alguma, favor nos contate</h5>}
                 <button className=" watchButton bg-red-700 hover:bg-red-800 text-gray-200/90 font-bold py-2 px-6 rounded mr-10 min-w-[25%] max-w-[150px] max-h-[40px]">Ver agora</button>
               </div>
             </div>
@@ -78,4 +79,4 @@ function MainInfos({type, id, language , onFetch}) {
   )
 }
 
-export default MainInfos;
+export default MediaMainInfos;

@@ -5,7 +5,7 @@ function MediaRecommendations({info}) {
     const [isReady, setIsReady] = useState(false);
 
     useEffect(() => {
-      if (info && info[4].recommendations !== null) {
+      if (info && info[4].recommendations.length > 0) {
         setIsReady(true);
       }
     
@@ -15,7 +15,7 @@ function MediaRecommendations({info}) {
     <>
         {isReady ? <div>
             <div className=' text-white mt-10 mb-10'>
-                <h5 className=' inline-block text-4xl font-bold'>Recommendations</h5>
+                <h5 className=' inline-block text-3xl font-bold'>Recomendações</h5>
             </div>
                 
             <MediaRecommendationsCarousel info={info}></MediaRecommendationsCarousel>

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import placeholder from "../../assets/placeholder/placeholder-image.webp"
-import "./style.css"
 
 function Cards() {
   

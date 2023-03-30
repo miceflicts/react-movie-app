@@ -18,13 +18,13 @@ function App() {
     <>
       <Header language={language}></Header>
         <Routes>
-          <Route path='react-movie-app/' element={<Home language={language} region={region}/>} />
-          <Route path='react-movie-app/movie' element={<Movie language={language} region={region}/>} />
-          <Route path='react-movie-app/movie/:id' element={<MovieDetails language={language} region={region}/>} />
-          <Route path='react-movie-app/tv' element={<TvShow language={language} region={region}/>} />
-          <Route path='react-movie-app/tv/:id' element={<TvShowDetails language={language} region={region}/>} />
-          <Route path="react-movie-app/search" element={<SearchPage language={language} region={region}/>} />
-          <Route path="react-movie-app/person/:id" element={<Person language={language} region={region}/>} />
+          <Route path='/react-movie-app/' element={<Home language={language} region={region}/>} />
+          <Route path='/react-movie-app/movie' element={<Movie language={language} region={region}/>} />
+          <Route path='/react-movie-app/movie/:id' element={<MovieDetails language={language} region={region}/>} />
+          <Route path='/react-movie-app/tv' element={<TvShow language={language} region={region}/>} />
+          <Route path='/react-movie-app/tv/:id' element={<TvShowDetails language={language} region={region}/>} />
+          <Route path="/react-movie-app/search" element={<SearchPage language={language} region={region}/>} />
+          <Route path="/react-movie-app/person/:id" element={<Person language={language} region={region}/>} />
         </Routes>
     </>
   );

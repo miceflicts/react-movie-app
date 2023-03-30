@@ -1,12 +1,11 @@
 import React,{useState, useEffect} from 'react'
-import BackdropsCarousel from '../../carousels/backdropsCarousel';
+import MediaBackdropsCarousel from '../../carousels/mediaBackdropsCarousel';
 
-
-function Backdrops({info}) {
+function MediaBackdrops({info}) {
     const [isReady, setIsReady] = useState(false);
 
     useEffect(() => {
-      if (info &&   info[2].mediaBackdrops !== null) {
+      if (info &&   info[2].mediaBackdrops.length > 0) {
         setIsReady(true);
       }
     
@@ -18,16 +17,16 @@ function Backdrops({info}) {
             {isReady ? <div className='w-full'>
                 <div className='mt-10'>
                     <div className=' text-white'>
-                        <h5 className=' inline-block text-4xl font-bold'>Imagens</h5>
+                        <h5 className=' inline-block text-3xl font-bold'>Imagens</h5>
                     </div>
                 </div>
                 
-                <div className='swiper-container'>
-                    <BackdropsCarousel info={info}></BackdropsCarousel>
+                <div>
+                    <MediaBackdropsCarousel info={info}></MediaBackdropsCarousel>
                 </div>
             </div> : null}
         </>
     )
 }
 
-export default Backdrops
+export default MediaBackdrops

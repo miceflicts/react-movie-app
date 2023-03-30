@@ -4,7 +4,6 @@ import { Navigation } from "swiper";
 import Cards from '../../cardsRecommendations';
 import 'swiper/css';
 import "swiper/css/navigation";
-import "./style.css"
 import Placeholder from '../../cardsRecommendations/placeholder';
 
 function CardCarousel({recommendations, type}) {
@@ -14,6 +13,10 @@ function CardCarousel({recommendations, type}) {
         <Swiper
         modules={[Navigation]}
         navigation
+        style={{
+            "--swiper-navigation-color": "rgba(255, 255, 255, 0.8)",
+            "--swiper-navigation-size": "25px",
+        }}
         spaceBetween={20}
         slidesPerView={2}
         breakpoints={{

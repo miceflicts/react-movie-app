@@ -1,11 +1,11 @@
 import React,{useState, useEffect} from 'react'
-import PosterCarousel from '../../carousels/postersCarousel';
+import MediaPosterCarousel from '../../carousels/mediaPosterCarousel';
 
-function Posters({info}) {
+function MediaPosters({info}) {
     const [isReady, setIsReady] = useState(false);
 
     useEffect(() => {
-      if (info && info[2].mediaPosters !== null) {
+      if (info && info[2].mediaPosters.length > 0) {
         setIsReady(true);
       }
     
@@ -17,14 +17,14 @@ function Posters({info}) {
             {isReady ? <div>
                 <div className='mt-10'>
                     <div className=' text-white'>
-                        <h5 className=' inline-block text-4xl font-bold'>Posters</h5>
+                        <h5 className=' inline-block text-3xl font-bold'>Posters</h5>
                     </div>
                 </div>
                 
-                <PosterCarousel info={info}></PosterCarousel>
+                <MediaPosterCarousel info={info}></MediaPosterCarousel>
             </div> : null}
         </>
     )
 }
 
-export default Posters
+export default MediaPosters
