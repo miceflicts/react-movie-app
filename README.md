@@ -40,7 +40,7 @@ The Movie-Info React App was built using Vite, a build tool for modern web appli
 The Movie-Info React App uses The Movie Database API to get the information displayed on the website. This API provides a wealth of information about movies, TV shows, and people in the entertainment industry.
 
 ## How to use it
-To use the Movie-Info React App on your computer, you need to download the code from the project's GitHub repository. Once downloaded, you can open the project in your preferred code editor and run npm install to install all the necessary dependencies. After that, you can run npm run dev to start the development server and view the website on your browser.
+To use the Movie-Info React App on your computer, you need to *download the code from the project's GitHub repository*. Once downloaded, you can open the project in your preferred code editor and run npm install to install all the necessary dependencies. After that, you can run npm run dev to start the development server and view the website on your browser.
 
 ## Conclusion
 The Movie-Info React App is a great resource for anyone looking for information about movies, TV shows, and people in the entertainment industry. Its modern design, responsive layout, and user-friendly interface make it easy to use and navigate. The website uses the latest technologies, including Tailwind CSS and additional dependencies, to deliver a great user experience.
