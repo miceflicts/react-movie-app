@@ -1,7 +1,8 @@
 import React,{useState, useEffect} from 'react'
 import MediaBackdropsCarousel from '../../carousels/mediaBackdropsCarousel';
+import mediaData from "../../../languages/mediaData.json"
 
-function MediaBackdrops({info}) {
+function MediaBackdrops({info, language}) {
     const [isReady, setIsReady] = useState(false);
 
     useEffect(() => {
@@ -9,15 +10,14 @@ function MediaBackdrops({info}) {
         setIsReady(true);
       }
     
-    }, [info])
-    
+    }, [info])    
 
     return (
         <>
             {isReady ? <div className='w-full'>
                 <div className='mt-10'>
                     <div className=' text-white'>
-                        <h5 className=' inline-block text-3xl font-bold'>Imagens</h5>
+                        <h5 className=' inline-block text-3xl font-bold'>{mediaData.Languages[language][0]["Images"]}</h5>
                     </div>
                 </div>
                 
