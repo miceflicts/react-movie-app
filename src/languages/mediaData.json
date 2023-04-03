@@ -1,0 +1,26 @@
+{
+    "Languages": {
+      "pt-BR": [
+        {
+            "Watch Button": "Ver agora",
+            "Cast": "Elenco",
+            "Images": "Imagens",
+            "Videos": "Videos",
+            "Posters": "Posters",
+            "No Info": "Não temos nenhuma informação sobre essa mídia, caso possua alguma, favor nos contate",
+            "Recommendations": "Recomendados"
+        }
+      ],
+      "en-US": [
+        {
+            "Watch Button": "Watch now",
+            "Cast": "Cast",
+            "Images": "Images",
+            "Videos": "Videos",
+            "Posters": "Posters",
+            "No Info": "We have no info about this media, if you have please contact us",
+            "Recommendations": "Recommendations"
+        }
+      ]
+    }
+  }

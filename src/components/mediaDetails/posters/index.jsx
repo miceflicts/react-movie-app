@@ -1,7 +1,8 @@
 import React,{useState, useEffect} from 'react'
 import MediaPosterCarousel from '../../carousels/mediaPosterCarousel';
+import mediaData from "../../../languages/mediaData.json"
 
-function MediaPosters({info}) {
+function MediaPosters({info, language}) {
     const [isReady, setIsReady] = useState(false);
 
     useEffect(() => {
@@ -17,7 +18,7 @@ function MediaPosters({info}) {
             {isReady ? <div>
                 <div className='mt-10'>
                     <div className=' text-white'>
-                        <h5 className=' inline-block text-3xl font-bold'>Posters</h5>
+                        <h5 className=' inline-block text-3xl font-bold'>{mediaData.Languages[language][0]["Posters"]}</h5>
                     </div>
                 </div>
                 

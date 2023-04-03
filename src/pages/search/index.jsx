@@ -3,7 +3,7 @@ import Search from "../../layouts/search/body"
 
 function SearchPage({language}) {
   return (
-    <div className="flex m-auto w-3/4 mt-36 max-[600px]:w-[85%] min-h-[800px]">
+    <div className="flex m-auto w-3/4 mt-36 mb-10 max-[600px]:w-[85%] min-h-[800px]">
       <Search language={language}></Search>
     </div>
   )

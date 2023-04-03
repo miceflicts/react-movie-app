@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link} from 'react-router-dom'
 
-function oSearchCards({name, poster, type, id}) {
+function SearchCards({name, poster, type, id}) {
 
   const foreceRefresh = () => {
     setTimeout(()=>{

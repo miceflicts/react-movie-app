@@ -4,7 +4,7 @@ import SearchCards from '../cards';
 function SearchResults({ info, type }) {
 
   return (
-    <div className='mt-10 mb-10 w-full min-h-full flex flex-wrap justify-center gap-4'>
+    <div className='mt-10 mb-10 w-full min-h-screen flex flex-wrap justify-center gap-4'>
       {info.map((media, index) =>
         media.poster !== undefined ? (
           <SearchCards

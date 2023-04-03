@@ -1,7 +1,8 @@
 import React,{useState, useEffect} from 'react'
 import MediaRecommendationsCarousel from '../../carousels/mediaRecommendationsCarousel';
+import mediaData from "../../../languages/mediaData.json"
 
-function MediaRecommendations({info}) {
+function MediaRecommendations({info, language}) {
     const [isReady, setIsReady] = useState(false);
 
     useEffect(() => {
@@ -15,7 +16,7 @@ function MediaRecommendations({info}) {
     <>
         {isReady ? <div>
             <div className=' text-white mt-10 mb-10'>
-                <h5 className=' inline-block text-3xl font-bold'>Recomendações</h5>
+                <h5 className=' inline-block text-3xl font-bold'>{mediaData.Languages[language][0]["Recommendations"]}</h5>
             </div>
                 
             <MediaRecommendationsCarousel info={info}></MediaRecommendationsCarousel>

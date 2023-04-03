@@ -31,15 +31,15 @@ function TvShowDetails() {
                 <MediaMainInfos type={type} id={id} language={language} onFetch={handleFetch} onExecuteScroll={handleExecuteScroll}></MediaMainInfos>
               </div>
               
-              <MediaCast info={mediaInfo}></MediaCast>  
-              <MediaBackdrops info={mediaInfo}></MediaBackdrops>
+              <MediaCast info={mediaInfo} language={language}></MediaCast>  
+              <MediaBackdrops info={mediaInfo} language={language}></MediaBackdrops>
 
               <div ref={videoRef}>
-                <MediaVideos info={mediaInfo}></MediaVideos>
+                <MediaVideos info={mediaInfo} language={language}></MediaVideos>
               </div>
 
-              <MediaPosters info={mediaInfo}></MediaPosters>
-              <MediaRecommendations info={mediaInfo}></MediaRecommendations>
+              <MediaPosters info={mediaInfo} language={language}></MediaPosters>
+              <MediaRecommendations info={mediaInfo} language={language}></MediaRecommendations>
 
               <Footer language={language}></Footer>
           </div>

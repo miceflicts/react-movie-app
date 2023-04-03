@@ -1,5 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import genresData from "../../../languages/genresData.json"
+import mediaData from "../../../languages/mediaData.json"
 import { GetMediasDetails } from '../../../api'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
 import "./style.css"
@@ -69,8 +70,8 @@ function MediaMainInfos({type, id, language , onFetch, onExecuteScroll}) {
                   <h5 className='text-gray-300 text-base'>{mediaInfo[0].tagline}</h5>
                 }
                 {mediaInfo[0].overview.length > 0 ? <h5 className='text-gray-200 text-base max-lines'>{mediaInfo[0].overview}</h5>
-                : <h5 className='text-gray-200 text-base max-lines'>Não temos nenhuma informação sobre essa mídia, caso possua alguma, favor nos contate</h5>}
-                <button className=" watchButton bg-red-700 hover:bg-red-800 text-gray-200/90 font-bold py-2 px-6 rounded mr-10 min-w-[25%] max-w-[150px] max-h-[40px]" onClick={onExecuteScroll}>Ver agora</button>
+                : <h5 className='text-gray-200 text-base max-lines'>{mediaData.Languages[language][0]["No Info"]}</h5>}
+                <button className=" watchButton bg-red-700 hover:bg-red-800 text-gray-200/90 font-bold py-2 px-6 rounded mr-10 min-w-[25%] max-w-[150px] max-h-[40px]" onClick={onExecuteScroll}>{mediaData.Languages[language][0]["Watch Button"]}</button>
               </div>
             </div>
           </div>
