@@ -33,6 +33,9 @@ In the People section, users can search for people and view an overview of their
 ## Technologies Used
 The Movie-Info React App was built using Vite, a build tool for modern web applications. It uses React, a JavaScript library for building user interfaces, and Tailwind CSS, a utility-first CSS framework. The website is fully responsive, making it look great on any device. Additional dependencies like react-circular-progressbar, react-router-dom, and swiper were used to enhance the user experience.
 
+
+![Captura de tela 2023-04-02 231814](https://user-images.githubusercontent.com/80134625/229396787-746c589e-256d-4c1f-9318-e598056573f7.png)
+
 ## API
 The Movie-Info React App uses The Movie Database API to get the information displayed on the website. This API provides a wealth of information about movies, TV shows, and people in the entertainment industry.
 
