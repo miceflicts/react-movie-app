@@ -11,7 +11,7 @@ import TvShowDetails from './pages/tvDetails';
 import Person from './pages/person';
 
 function App() {
-  const language =  navigator.language || navigator.userLanguage; 
+  let language =  navigator.language || navigator.userLanguage; 
   const region = language.split("-")[1];
 
   return (
