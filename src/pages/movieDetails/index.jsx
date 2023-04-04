@@ -12,6 +12,7 @@ function MovieDetails() {
   const [mediaInfo, setMediaInfo] = useState(null)
   const {id} = useParams();
   const type = "movie";
+  let language =  navigator.language || navigator.userLanguage; 
 
   const videoRef = useRef(null);
 
