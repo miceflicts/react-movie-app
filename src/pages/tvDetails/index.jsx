@@ -12,7 +12,7 @@ function TvShowDetails() {
     const [mediaInfo, setMediaInfo] = useState(null)
     const {id} = useParams();
     const type = "tv";
-    const language =  navigator.language || navigator.userLanguage; 
+    let language =  navigator.language || navigator.userLanguage; 
 
     const videoRef = useRef(null);
 

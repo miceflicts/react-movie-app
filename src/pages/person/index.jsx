@@ -9,7 +9,7 @@ function Person() {
     const [worksInfo, setWorksInfo] = useState(null);
 
     const {id} = useParams();
-    const language =  navigator.language || navigator.userLanguage; 
+    let language =  navigator.language || navigator.userLanguage; 
 
     const handleFetch = (event) => {
       setPersonInfo(event);

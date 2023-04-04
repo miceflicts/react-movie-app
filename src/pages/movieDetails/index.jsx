@@ -12,7 +12,6 @@ function MovieDetails() {
   const [mediaInfo, setMediaInfo] = useState(null)
   const {id} = useParams();
   const type = "movie";
-  const language =  navigator.language || navigator.userLanguage; 
 
   const videoRef = useRef(null);
 
@@ -33,7 +32,7 @@ function MovieDetails() {
             
             <MediaCast info={mediaInfo} language={language}></MediaCast>
             <MediaBackdrops info={mediaInfo} language={language}></MediaBackdrops>
-            
+
             <div ref={videoRef}>
               <MediaVideos info={mediaInfo} language={language}></MediaVideos>
             </div>
